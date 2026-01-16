@@ -1,0 +1,23 @@
+trial 3 from search : 
+    BATCH: int = 3840  
+    NOISE_DIM: int = 128 
+    GRADIENT_PENALTY: int = 5
+    G_LR: float = 5e-4 
+    G_H: int = 128 
+    D_LR: float = 1e-4
+    D_H: int = 256
+    DISC_STEPS: int = 3
+
+    #PPO SPECIFIC  
+    USE_TANH: bool = True  
+    PPO_EPOCHS: int = 2
+    MEAN_PENALTY_SCALE: float = 0.0
+
+
+
+#NOT TUNED (PPO CONSTANTS)
+VF_COEF: float = 0.5
+CLIP_EPS: float = 0.1 
+ENT_BETA: float = 1e-3 
+EPS: float = 1e-6 
+

@@ -1,0 +1,27 @@
+TRIAL 9 
+    BATCH 256.0
+    D_H 128.0
+    D_LR  3e-5
+    DISC_STEPS 1.0
+    G_H 128.0
+    G_LR 1e-4
+    GP 10.0
+    MEAN_PENALTY_SCALE 0.2
+    NOISE_DIM 128.0
+    PPO_EPOCHS 3.0
+    USE_TANH TRUE 
+
+
+TRIAL 16
+    BATCH 64.0
+    D_H 128.0
+    D_LR 1e-5
+    DISC_STEPS 3.0
+    G_H 128.0
+    G_LR 1e-4
+    GP 5.0
+    MEAN_PENALTY_SCALE 0.1
+    NOISE_DIM 112.0
+    PPO_EPOCHS 5.0
+    USE_TANH TRUE 
+

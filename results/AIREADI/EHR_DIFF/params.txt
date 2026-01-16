@@ -1,0 +1,17 @@
+
+
+trial_0_2500_epochs: 
+    EPOCHS: 2500. BATCH: 384. TIME_DIM: 128. LR: 7.563031075245569e-05.
+
+TRIAL_12_500_EPOCHS: 
+    EPOCHS: 500. BATCH: 512. TIME_DIM: 192. LR: 0.00125159591523851. 
+
+TRIAL_16_5000_EPOCHS: 
+    EPOCHS: 5000. BATCH: 1024. TIME_DIM: 320. LR: 4.3590996037206084e-05. 
+
+ALL OTHER PARAMETERS WERE DEFAULT PARAMS. 
+
+Note for AIREADI-EHRDIFF, I ran a few searches (with different epoch lengths fixed) to see if that helped with the membership inference risk. 
+Beyond that, we only tuned batch, time_dim and LR. 
+Also note that our selection process was a bit different from the searches: our searches were maximizing s2h_auc and r2s_auc, but for EHR_DIFF we couldn't just 
+pick the best trial because it had > 0.90 membership inference risk AUC. 

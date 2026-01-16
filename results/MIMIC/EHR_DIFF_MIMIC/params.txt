@@ -1,0 +1,4 @@
+Default except for: 
+    TIME DIM 448
+    LR 0.000625407480018934
+    BATCH SIZE 2304
