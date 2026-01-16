@@ -75,17 +75,15 @@ You can add flags as desired to override other hyperparameters (in parse_args())
 **Evaluation** 
 
 - *evaluate_aireadi.py*: evaluation methods for AI-READI, automatically called from train.py for all models. 
-    - Utility evaluation: Type 2 Diabetes classifications (real to real, real to synthetic, synthetic to real, synthetic to hold out).  
+    - Utility evaluation: Type 2 Diabetes classifications.
     - Fidelity evaluation: correlations, value statistics, histograms, distributional score (from value statistics), PCA 
     - Privacy evaluation: membership inference risk 
     - Plotting losses (RL and EMR_WGAN specific)
-    - A few miscellaneous logging / helper functions as needed for RL and EMR_WGAN
 - *evaluate_mimic.py*: evaluation methods for MIMIC, automatically called from train.py for all models. 
     - Utility evaluation: 'DIE_1y' target variable classification. We use a LightGB (following Yan et al., 2024). 
     - Fidelity evaluation: correlations, value statistics, histograms, dimension wide distribution, latent cluster analysis, medical concept abundance, clinical knowledge violations. 
     - Privacy evaluation: membership inference risk 
     - Plotting losses (RL and EMR_WGAN specific)
-    - A few miscellaneous logging / helper functions as needed for RL and EMR_WGAN
 
 
 **Results**
