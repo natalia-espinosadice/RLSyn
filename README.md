@@ -1,4 +1,4 @@
-# rl_synth
+# RLSyn
 
 
 **Preprocessing AI-READI** 
