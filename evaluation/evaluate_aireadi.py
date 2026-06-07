@@ -894,4 +894,5 @@ def evaluate_model_aireadi(df_real, df_hold, df_train, df_syn, df_hold_norm, df_
     log_result(RESULT_CSV, RUN_NAME, ITERS, DATA_SIZE, SEED, cwc, r2r_auc, r2r_acc, s2h_auc, s2h_acc, s2r_auc, s2r_acc, r2s_auc, r2s_acc, rvs_auc, rvs_acc, mem_aucs["real_roc_auc"], mem_aucs["real_roc_auc_bal"], mem_aucs["synth_roc_auc"], mem_aucs["synth_roc_auc_bal"], elapsed_time)
 
 if __name__ == '__main__':
+    main() 
     
