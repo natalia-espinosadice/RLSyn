@@ -1021,4 +1021,5 @@ def make_logger(model_id, trial_dir):
 
 
 if __name__ == '__main__':
+    main() 
    
