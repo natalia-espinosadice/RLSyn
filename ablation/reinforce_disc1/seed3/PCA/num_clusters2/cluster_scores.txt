@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=15)
+
+Top 10 features for PC1:
+Cancer                                     0.2416
+sleep_light_hrs                            0.2044
+Alkaline Phosphatase (IU/L)_value (IU/L)   0.2004
+HDL Cholesterol (mg/dL)_value (mg/dL)      0.1987
+Albumin (g/dL)_value (g/dL)                0.1973
+QT                                         0.1948
+QTc                                        0.1929
+Calcium (mg/dL)_value (mg/dL)              0.1886
+BUN/Creatinine ratio_value                 0.1869
+repetition_time_value                      0.1775
+
+Top 10 features for PC2:
+High blood pressure      0.5310
+ABNORMAL                 0.4671
+OTHERWISE NORMAL         0.4461
+fluency_language_value   0.4459
+BORDERLINE               0.1608
+Urinary problems         0.1556
+Type 2 Diabetes          0.0823
+NORMAL                   0.0796
+Digestive problems       0.0732
+Obesity                  0.0497

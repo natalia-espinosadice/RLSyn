@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=14)
+
+Top 10 features for PC1:
+Heart attack                      0.2635
+Low blood pressure                0.2587
+Kidney problems                   0.2456
+Other heart issues (pacemaker)    0.2435
+Osteoporosis                      0.2416
+Type 2 Diabetes                   0.1787
+Sodium (mEq/L)_value (mEq/L)      0.1781
+Obesity                           0.1710
+repetition_time_value             0.1693
+Potassium (mEq/L)_value (mEq/L)   0.1667
+
+Top 10 features for PC2:
+cube_visuospatial_executive_value     0.7039
+NORMAL                                0.6697
+ABNORMAL                              0.1119
+Obesity                               0.0754
+Arthritis                             0.0619
+fluency_language_value                0.0596
+OTHERWISE NORMAL                      0.0550
+Dry eye (1+)                          0.0541
+trails_visuospatial_executive_value   0.0517
+moca_total_score_value                0.0369

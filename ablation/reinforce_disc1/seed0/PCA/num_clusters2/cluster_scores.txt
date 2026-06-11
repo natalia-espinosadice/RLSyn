@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=11)
+
+Top 10 features for PC1:
+Heart attack                          0.2258
+Stroke                                0.2245
+Circulation problems                  0.2213
+Other neurological conditions         0.2173
+Marijuana user                        0.2165
+Other heart issues (pacemaker)        0.2095
+trails_visuospatial_executive_value   0.1905
+Digestive problems                    0.1825
+NORMAL                                0.1733
+blood_glucose_mean                    0.1729
+
+Top 10 features for PC2:
+Cataracts (1+ eyes)                 0.6200
+High blood pressure                 0.3513
+Type 2 Diabetes                     0.3168
+High blood cholesterol              0.2517
+Arthritis                           0.2446
+Obesity                             0.1818
+cube_visuospatial_executive_value   0.1667
+ABNORMAL                            0.1565
+Dry eye (1+)                        0.1245
+Urinary problems                    0.1226

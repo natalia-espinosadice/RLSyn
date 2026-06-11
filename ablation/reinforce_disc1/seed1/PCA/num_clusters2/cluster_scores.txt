@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=15)
+
+Top 10 features for PC1:
+Circulation problems                    0.2778
+Osteoporosis                            0.2629
+sleep_deep_hrs                          0.2268
+HDL Cholesterol (mg/dL)_value (mg/dL)   0.2059
+Sodium (mEq/L)_value (mEq/L)            0.1927
+repetition_time_value                   0.1832
+T                                       0.1831
+Obesity                                 0.1824
+P                                       0.1785
+Chloride (mEq/L)_value (mEq/L)          0.1775
+
+Top 10 features for PC2:
+High blood pressure                 0.5869
+cube_visuospatial_executive_value   0.5473
+ABNORMAL                            0.5123
+Cancer                              0.1630
+Other heart issues (pacemaker)      0.1295
+High blood cholesterol              0.0947
+Obesity                             0.0921
+Type 2 Diabetes                     0.0877
+Cataracts (1+ eyes)                 0.0500
+Arthritis                           0.0497

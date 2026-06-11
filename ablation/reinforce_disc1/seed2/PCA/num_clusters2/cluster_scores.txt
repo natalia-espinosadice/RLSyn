@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=12)
+
+Top 10 features for PC1:
+Other neurological conditions              0.2478
+Kidney problems                            0.2399
+Other heart issues (pacemaker)             0.2371
+Hearing impairment                         0.2348
+Chronic pullmonary problems                0.2347
+Digestive problems                         0.2106
+NORMAL                                     0.1969
+Alkaline Phosphatase (IU/L)_value (IU/L)   0.1888
+Albumin (g/dL)_value (g/dL)                0.1860
+digitspan_time_value                       0.1800
+
+Top 10 features for PC2:
+trails_visuospatial_executive_value   0.3860
+High blood pressure                   0.3818
+Arthritis                             0.3808
+fluency_language_value                0.3709
+cube_visuospatial_executive_value     0.3616
+Cataracts (1+ eyes)                   0.3066
+Dry eye (1+)                          0.3064
+ABNORMAL                              0.3026
+Type 2 Diabetes                       0.0366
+Kidney problems                       0.0325

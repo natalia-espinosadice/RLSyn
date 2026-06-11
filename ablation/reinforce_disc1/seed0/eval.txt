@@ -1,0 +1,1520 @@
+OVERALL STATISTICS (real vs syn) 
+heart_rate_mean
+mean:     76.092 |     49.700 | 
+std:      9.428 |      0.000 | 
+min:     49.700 |     49.700 | 
+max:    111.640 |     49.700 | 
+med:     75.700 |     49.700 
+
+blood_glucose_mean
+mean:    133.797 |    338.690 | 
+std:     30.686 |      0.000 | 
+min:     58.970 |    338.690 | 
+max:    338.690 |    338.690 | 
+med:    126.160 |    338.690 
+
+resp_rate_mean
+mean:     14.738 |     12.190 | 
+std:      0.957 |      0.000 | 
+min:     12.190 |     12.190 | 
+max:     19.920 |     12.190 | 
+med:     14.570 |     12.190 
+
+stress_mean
+mean:     54.775 |     12.080 | 
+std:     17.752 |      0.000 | 
+min:     12.080 |     12.080 | 
+max:     98.150 |     12.080 | 
+med:     53.960 |     12.080 
+
+blood_glucose_std
+mean:     24.045 |      6.370 | 
+std:     11.879 |      0.000 | 
+min:      6.370 |      6.370 | 
+max:    102.270 |      6.370 | 
+med:     20.670 |      6.370 
+
+total_steps
+mean:  10079.711 |      0.051 | 
+std:   6973.595 |      0.000 | 
+min:      0.000 |      0.051 | 
+max:  51169.476 |      0.051 | 
+med:   8862.000 |      0.051 
+
+resting_heart_rate
+mean:     73.951 |     46.730 | 
+std:      8.847 |      0.000 | 
+min:     46.730 |     46.730 | 
+max:    110.510 |     46.730 | 
+med:     73.650 |     46.730 
+
+total_kcal
+mean:    619.585 |      0.006 | 
+std:    780.124 |      0.000 | 
+min:      0.000 |      0.006 | 
+max:   5615.619 |      0.006 | 
+med:    321.527 |      0.006 
+
+sleep_light_hrs
+mean:      3.018 |      0.000 | 
+std:      1.183 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     10.500 |      0.000 | 
+med:      2.920 |      0.000 
+
+sleep_deep_hrs
+mean:      1.597 |      0.000 | 
+std:      1.094 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      6.670 |      0.000 | 
+med:      1.420 |      0.000 
+
+sleep_rem_hrs
+mean:      1.427 |      0.000 | 
+std:      1.082 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      8.250 |      0.000 | 
+med:      1.330 |      0.000 
+
+sleep_awake_hrs
+mean:      1.883 |      0.000 | 
+std:      1.412 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     10.330 |      0.000 | 
+med:      1.670 |      0.000 
+
+act_generic_hrs
+mean:      0.634 |      0.000 | 
+std:      1.502 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     21.580 |      0.000 | 
+med:      0.080 |      0.000 
+
+act_running_hrs
+mean:      0.027 |      0.000 | 
+std:      0.128 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      2.750 |      0.000 | 
+med:      0.000 |      0.000 
+
+act_walking_hrs
+mean:      3.015 |      0.000 | 
+std:      2.126 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     13.580 |      0.000 | 
+med:      2.670 |      0.000 
+
+act_sedentary_hrs
+mean:     20.324 |     24.000 | 
+std:      2.645 |      0.000 | 
+min:      2.080 |     24.000 | 
+max:     24.000 |     24.000 | 
+med:     20.830 |     24.000 
+
+A/G Ratio_value
+mean:      1.643 |      0.636 | 
+std:      0.278 |      0.000 | 
+min:      0.636 |      0.636 | 
+max:      2.474 |      0.636 | 
+med:      1.640 |      0.636 
+
+ALT (IU/L)_value (IU/L)
+mean:     21.464 |      6.000 | 
+std:     12.084 |      0.000 | 
+min:      6.000 |      6.000 | 
+max:    135.000 |      6.000 | 
+med:     19.000 |      6.000 
+
+AST (IU/L)_value (IU/L)
+mean:     20.162 |      7.000 | 
+std:      7.519 |      0.000 | 
+min:      7.000 |      7.000 | 
+max:     98.000 |      7.000 | 
+med:     19.000 |      7.000 
+
+Albumin (g/dL)_value (g/dL)
+mean:      4.297 |      2.500 | 
+std:      0.284 |      0.000 | 
+min:      2.500 |      2.500 | 
+max:      5.100 |      2.500 | 
+med:      4.300 |      2.500 
+
+Alkaline Phosphatase (IU/L)_value (IU/L)
+mean:     74.161 |     23.000 | 
+std:     23.812 |      0.000 | 
+min:     23.000 |     23.000 | 
+max:    195.000 |     23.000 | 
+med:     71.000 |     23.000 
+
+BUN (mg/dL)_value (mg/dL)
+mean:     16.702 |      5.000 | 
+std:      7.313 |      0.000 | 
+min:      5.000 |      5.000 | 
+max:     82.000 |      5.000 | 
+med:     15.000 |      5.000 
+
+BUN/Creatinine ratio_value
+mean:     18.632 |     42.857 | 
+std:      5.719 |      0.000 | 
+min:      5.589 |     42.857 | 
+max:     42.857 |     42.857 | 
+med:     17.808 |     42.857 
+
+Bilirubin Total (mg/dL)_value (mg/dL)
+mean:      0.557 |      0.200 | 
+std:      0.260 |      0.000 | 
+min:      0.200 |      0.200 | 
+max:      2.200 |      0.200 | 
+med:      0.500 |      0.200 
+
+C-Peptide (ng/mL)_value (ng/mL)
+mean:      3.028 |      0.002 | 
+std:      2.016 |      0.000 | 
+min:      0.002 |      0.002 | 
+max:     17.270 |      0.002 | 
+med:      2.526 |      0.002 
+
+CRP - HS (mg/L)_value (mg/L)
+mean:      3.820 |      0.100 | 
+std:      8.116 |      0.000 | 
+min:      0.100 |      0.100 | 
+max:    112.300 |      0.100 | 
+med:      1.400 |      0.100 
+
+Calcium (mg/dL)_value (mg/dL)
+mean:      9.462 |     11.000 | 
+std:      0.410 |      0.000 | 
+min:      6.500 |     11.000 | 
+max:     11.000 |     11.000 | 
+med:      9.500 |     11.000 
+
+Carbon Dioxide, Total (mEq/L)_value (mEq/L)
+mean:     25.611 |     15.000 | 
+std:      2.451 |      0.000 | 
+min:     15.000 |     15.000 | 
+max:     35.000 |     15.000 | 
+med:     26.000 |     15.000 
+
+Chloride (mEq/L)_value (mEq/L)
+mean:    102.507 |    113.000 | 
+std:      2.821 |      0.000 | 
+min:     87.000 |    113.000 | 
+max:    113.000 |    113.000 | 
+med:    103.000 |    113.000 
+
+Creatinine (mg/dL)_value (md/dL)
+mean:      0.924 |      0.420 | 
+std:      0.389 |      0.000 | 
+min:      0.420 |      0.420 | 
+max:      5.010 |      0.420 | 
+med:      0.850 |      0.420 
+
+Globulin, Total (g/dL)_value (g/dL)
+mean:      2.682 |      1.800 | 
+std:      0.439 |      0.000 | 
+min:      1.800 |      1.800 | 
+max:      5.500 |      1.800 | 
+med:      2.600 |      1.800 
+
+Glucose (mg/dL)_value (mg/dL)
+mean:    103.787 |     48.001 | 
+std:     34.458 |      0.000 | 
+min:     48.000 |     48.001 | 
+max:    576.000 |     48.001 | 
+med:     95.000 |     48.001 
+
+HDL Cholesterol (mg/dL)_value (mg/dL)
+mean:     56.459 |    129.000 | 
+std:     16.256 |      0.000 | 
+min:     24.000 |    129.000 | 
+max:    129.000 |    129.000 | 
+med:     54.000 |    129.000 
+
+INSULIN (ng/mL)_value (ng/mL)
+mean:      0.929 |      0.044 | 
+std:      1.008 |      0.000 | 
+min:      0.044 |      0.044 | 
+max:     12.504 |      0.044 | 
+med:      0.596 |      0.044 
+
+LDL Cholesterol Calculation (mg/dL)_value (mg/dL)
+mean:     90.530 |     -9.251 | 
+std:     36.303 |      0.000 | 
+min:     -9.251 |     -9.251 | 
+max:    278.563 |     -9.251 | 
+med:     88.623 |     -9.251 
+
+Potassium (mEq/L)_value (mEq/L)
+mean:      4.233 |      6.000 | 
+std:      0.377 |      0.000 | 
+min:      3.100 |      6.000 | 
+max:      6.000 |      6.000 | 
+med:      4.200 |      6.000 
+
+Protein, Total (g/dL)_value (g/dL)
+mean:      6.978 |      4.800 | 
+std:      0.494 |      0.000 | 
+min:      4.800 |      4.800 | 
+max:      9.000 |      4.800 | 
+med:      7.000 |      4.800 
+
+Sodium (mEq/L)_value (mEq/L)
+mean:    139.946 |    125.000 | 
+std:      2.217 |      0.000 | 
+min:    125.000 |    125.000 | 
+max:    148.000 |    125.000 | 
+med:    140.000 |    125.000 
+
+Total Cholesterol (mg/dL)_value (mg/dL)
+mean:    172.088 |    383.000 | 
+std:     43.929 |      0.000 | 
+min:     52.000 |    383.000 | 
+max:    383.000 |    383.000 | 
+med:    171.000 |    383.000 
+
+Triglycerides (mg/dL)_value (mg/dL)
+mean:    144.724 |     34.001 | 
+std:     98.789 |      0.000 | 
+min:     34.000 |     34.001 | 
+max:   1324.000 |     34.001 | 
+med:    123.000 |     34.001 
+
+Urine Albumin (mg/dL)_value (mg/DL)
+mean:      3.153 |      0.001 | 
+std:     24.128 |      0.000 | 
+min:      0.000 |      0.001 | 
+max:    581.400 |      0.001 | 
+med:      0.410 |      0.001 
+
+Urine Creatinine (mg/dL)_value (mg/DL)
+mean:     88.043 |      7.800 | 
+std:     69.001 |      0.000 | 
+min:      7.800 |      7.800 | 
+max:    438.100 |      7.800 | 
+med:     70.600 |      7.800 
+
+clock_visuospatial_executive_time_value
+mean:     61.679 |      1.000 | 
+std:     33.963 |      0.000 | 
+min:      1.000 |      1.000 | 
+max:    286.000 |      1.000 | 
+med:     53.000 |      1.000 
+
+delayed_recall_with_no_clue_time_value
+mean:     57.591 |      0.000 | 
+std:     44.853 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:    380.000 |      0.000 | 
+med:     47.000 |      0.000 
+
+digitspan_time_value
+mean:     35.221 |      7.000 | 
+std:      7.854 |      0.000 | 
+min:      7.000 |      7.000 | 
+max:     93.000 |      7.000 | 
+med:     34.000 |      7.000 
+
+memory_trial1_time_value
+mean:     39.947 |      6.001 | 
+std:     30.477 |      0.000 | 
+min:      6.000 |      6.001 | 
+max:    642.000 |      6.001 | 
+med:     36.000 |      6.001 
+
+memory_trial2_time_value
+mean:     30.131 |      3.000 | 
+std:      9.677 |      0.000 | 
+min:      3.000 |      3.000 | 
+max:     82.000 |      3.000 | 
+med:     28.000 |      3.000 
+
+moca_abstraction_time_value
+mean:     44.279 |      0.001 | 
+std:     38.432 |      0.000 | 
+min:      0.000 |      0.001 | 
+max:    536.000 |      0.001 | 
+med:     35.000 |      0.001 
+
+moca_orientation_time_value
+mean:     28.650 |      0.000 | 
+std:     11.278 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:    129.000 |      0.000 | 
+med:     26.000 |      0.000 
+
+moca_total_score_value
+mean:     25.477 |     30.000 | 
+std:      3.255 |      0.000 | 
+min:      6.000 |     30.000 | 
+max:     30.000 |     30.000 | 
+med:     26.000 |     30.000 
+
+naming_time_value
+mean:     26.681 |      3.000 | 
+std:     13.019 |      0.000 | 
+min:      3.000 |      3.000 | 
+max:    218.000 |      3.000 | 
+med:     24.000 |      3.000 
+
+repetition_time_value
+mean:     39.645 |      4.000 | 
+std:      8.914 |      0.000 | 
+min:      4.000 |      4.000 | 
+max:     98.000 |      4.000 | 
+med:     38.000 |      4.000 
+
+subtraction_time_value
+mean:     57.993 |      8.000 | 
+std:     38.366 |      0.000 | 
+min:      8.000 |      8.000 | 
+max:    495.000 |      8.000 | 
+med:     47.000 |      8.000 
+
+cube_visuospatial_executive_time_value
+mean:     59.962 |      4.000 | 
+std:     53.926 |      0.000 | 
+min:      4.000 |      4.000 | 
+max:    381.000 |      4.000 | 
+med:     38.000 |      4.000 
+
+lettera_time_value
+mean:     48.255 |      7.000 | 
+std:     10.980 |      0.000 | 
+min:      7.000 |      7.000 | 
+max:    110.000 |      7.000 | 
+med:     45.000 |      7.000 
+
+trails_visuospatial_executive_time_value
+mean:     49.529 |      3.001 | 
+std:     40.950 |      0.000 | 
+min:      3.000 |      3.001 | 
+max:    592.000 |      3.001 | 
+med:     39.000 |      3.001 
+
+moca_combined_mis_score_value
+mean:     12.257 |     15.000 | 
+std:      3.069 |      0.000 | 
+min:      0.000 |     15.000 | 
+max:     15.000 |     15.000 | 
+med:     13.000 |     15.000 
+
+memory_trial1_value
+mean:      4.493 |      5.000 | 
+std:      0.778 |      0.000 | 
+min:      0.000 |      5.000 | 
+max:      5.000 |      5.000 | 
+med:      5.000 |      5.000 
+
+memory_trial2_value
+mean:      4.858 |      5.000 | 
+std:      0.443 |      0.000 | 
+min:      2.000 |      5.000 | 
+max:      5.000 |      5.000 | 
+med:      5.000 |      5.000 
+
+moca_abstraction_value
+mean:      1.859 |      2.000 | 
+std:      0.415 |      0.000 | 
+min:      0.000 |      2.000 | 
+max:      2.000 |      2.000 | 
+med:      2.000 |      2.000 
+
+moca_orientation_value
+mean:      5.937 |      6.000 | 
+std:      0.275 |      0.000 | 
+min:      3.000 |      6.000 | 
+max:      6.000 |      6.000 | 
+med:      6.000 |      6.000 
+
+naming_value
+mean:      2.874 |      3.000 | 
+std:      0.393 |      0.000 | 
+min:      0.000 |      3.000 | 
+max:      3.000 |      3.000 | 
+med:      3.000 |      3.000 
+
+repetition_value
+mean:      1.376 |      2.000 | 
+std:      0.739 |      0.000 | 
+min:      0.000 |      2.000 | 
+max:      2.000 |      2.000 | 
+med:      2.000 |      2.000 
+
+subtraction_value
+mean:      2.537 |      3.000 | 
+std:      0.877 |      0.000 | 
+min:      0.000 |      3.000 | 
+max:      3.000 |      3.000 | 
+med:      3.000 |      3.000 
+
+Rate
+mean:     66.130 |     35.000 | 
+std:     11.024 |      0.000 | 
+min:     35.000 |     35.000 | 
+max:    112.000 |     35.000 | 
+med:     65.000 |     35.000 
+
+PR
+mean:    167.414 |     30.000 | 
+std:     31.409 |      0.000 | 
+min:     30.000 |     30.000 | 
+max:    416.000 |     30.000 | 
+med:    164.000 |     30.000 
+
+QRSD
+mean:     95.896 |     70.000 | 
+std:     16.029 |      0.000 | 
+min:     70.000 |     70.000 | 
+max:    176.000 |     70.000 | 
+med:     93.000 |     70.000 
+
+QT
+mean:    411.827 |    316.000 | 
+std:     32.363 |      0.000 | 
+min:    316.000 |    316.000 | 
+max:    614.000 |    316.000 | 
+med:    412.000 |    316.000 
+
+QTc
+mean:    428.780 |    357.000 | 
+std:     24.873 |      0.000 | 
+min:    357.000 |    357.000 | 
+max:    577.000 |    357.000 | 
+med:    427.000 |    357.000 
+
+P
+mean:     49.574 |    255.000 | 
+std:     30.486 |      0.000 | 
+min:    -87.000 |    255.000 | 
+max:    255.000 |    255.000 | 
+med:     53.000 |    255.000 
+
+QRS
+mean:     36.896 |    249.000 | 
+std:     44.615 |      0.000 | 
+min:   -127.000 |    249.000 | 
+max:    249.000 |    249.000 | 
+med:     42.000 |    249.000 
+
+T
+mean:     36.837 |    204.000 | 
+std:     30.779 |      0.000 | 
+min:    -67.000 |    204.000 | 
+max:    204.000 |    204.000 | 
+med:     36.000 |    204.000 
+
+HOLD OUT STATISTICS (hold vs. syn) 
+heart_rate_mean
+mean:     75.494 |     49.700 | 
+std:      9.174 |      0.000 | 
+min:     54.920 |     49.700 | 
+max:    105.780 |     49.700 | 
+med:     76.100 |     49.700 
+
+blood_glucose_mean
+mean:    137.547 |    338.690 | 
+std:     34.174 |      0.000 | 
+min:     74.930 |    338.690 | 
+max:    293.560 |    338.690 | 
+med:    129.505 |    338.690 
+
+resp_rate_mean
+mean:     14.816 |     12.190 | 
+std:      1.034 |      0.000 | 
+min:     12.760 |     12.190 | 
+max:     19.050 |     12.190 | 
+med:     14.700 |     12.190 
+
+stress_mean
+mean:     54.304 |     12.080 | 
+std:     18.047 |      0.000 | 
+min:     14.410 |     12.080 | 
+max:     97.200 |     12.080 | 
+med:     54.355 |     12.080 
+
+blood_glucose_std
+mean:     25.518 |      6.370 | 
+std:     11.411 |      0.000 | 
+min:      8.590 |      6.370 | 
+max:     72.180 |      6.370 | 
+med:     22.370 |      6.370 
+
+total_steps
+mean:   9252.069 |      0.051 | 
+std:   6910.087 |      0.000 | 
+min:      0.000 |      0.051 | 
+max:  48179.000 |      0.051 | 
+med:   8094.000 |      0.051 
+
+resting_heart_rate
+mean:     73.568 |     46.730 | 
+std:      8.734 |      0.000 | 
+min:     53.920 |     46.730 | 
+max:     98.030 |     46.730 | 
+med:     73.925 |     46.730 
+
+total_kcal
+mean:    562.680 |      0.006 | 
+std:    710.485 |      0.000 | 
+min:      0.000 |      0.006 | 
+max:   3828.857 |      0.006 | 
+med:    303.892 |      0.006 
+
+sleep_light_hrs
+mean:      3.088 |      0.000 | 
+std:      1.124 |      0.000 | 
+min:      0.170 |      0.000 | 
+max:      7.330 |      0.000 | 
+med:      3.000 |      0.000 
+
+sleep_deep_hrs
+mean:      1.555 |      0.000 | 
+std:      0.977 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      6.330 |      0.000 | 
+med:      1.420 |      0.000 
+
+sleep_rem_hrs
+mean:      1.486 |      0.000 | 
+std:      1.067 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      5.830 |      0.000 | 
+med:      1.375 |      0.000 
+
+sleep_awake_hrs
+mean:      1.984 |      0.000 | 
+std:      1.417 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      6.920 |      0.000 | 
+med:      1.750 |      0.000 
+
+act_generic_hrs
+mean:      0.549 |      0.000 | 
+std:      1.367 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     10.750 |      0.000 | 
+med:      0.080 |      0.000 
+
+act_running_hrs
+mean:      0.020 |      0.000 | 
+std:      0.123 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      1.670 |      0.000 | 
+med:      0.000 |      0.000 
+
+act_walking_hrs
+mean:      2.930 |      0.000 | 
+std:      2.157 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     11.170 |      0.000 | 
+med:      2.420 |      0.000 
+
+act_sedentary_hrs
+mean:     20.501 |     24.000 | 
+std:      2.619 |      0.000 | 
+min:     10.500 |     24.000 | 
+max:     24.000 |     24.000 | 
+med:     21.170 |     24.000 
+
+A/G Ratio_value
+mean:      1.649 |      0.636 | 
+std:      0.286 |      0.000 | 
+min:      1.024 |      0.636 | 
+max:      2.250 |      0.636 | 
+med:      1.667 |      0.636 
+
+ALT (IU/L)_value (IU/L)
+mean:     20.279 |      6.000 | 
+std:      8.123 |      0.000 | 
+min:      7.000 |      6.000 | 
+max:     43.000 |      6.000 | 
+med:     19.000 |      6.000 
+
+AST (IU/L)_value (IU/L)
+mean:     20.107 |      7.000 | 
+std:      6.560 |      0.000 | 
+min:      7.000 |      7.000 | 
+max:     37.000 |      7.000 | 
+med:     19.000 |      7.000 
+
+Albumin (g/dL)_value (g/dL)
+mean:      4.291 |      2.500 | 
+std:      0.239 |      0.000 | 
+min:      3.600 |      2.500 | 
+max:      4.800 |      2.500 | 
+med:      4.300 |      2.500 
+
+Alkaline Phosphatase (IU/L)_value (IU/L)
+mean:     76.414 |     23.000 | 
+std:     26.738 |      0.000 | 
+min:     40.000 |     23.000 | 
+max:    195.000 |     23.000 | 
+med:     70.000 |     23.000 
+
+BUN (mg/dL)_value (mg/dL)
+mean:     17.228 |      5.000 | 
+std:      7.242 |      0.000 | 
+min:      7.000 |      5.000 | 
+max:     55.000 |      5.000 | 
+med:     16.000 |      5.000 
+
+BUN/Creatinine ratio_value
+mean:     18.445 |     42.857 | 
+std:      5.971 |      0.000 | 
+min:      7.477 |     42.857 | 
+max:     42.857 |     42.857 | 
+med:     17.241 |     42.857 
+
+Bilirubin Total (mg/dL)_value (mg/dL)
+mean:      0.608 |      0.200 | 
+std:      0.255 |      0.000 | 
+min:      0.300 |      0.200 | 
+max:      1.600 |      0.200 | 
+med:      0.600 |      0.200 
+
+C-Peptide (ng/mL)_value (ng/mL)
+mean:      2.822 |      0.002 | 
+std:      1.781 |      0.000 | 
+min:      0.502 |      0.002 | 
+max:      9.773 |      0.002 | 
+med:      2.358 |      0.002 
+
+CRP - HS (mg/L)_value (mg/L)
+mean:      3.380 |      0.100 | 
+std:      5.661 |      0.000 | 
+min:      0.200 |      0.100 | 
+max:     28.900 |      0.100 | 
+med:      1.400 |      0.100 
+
+Calcium (mg/dL)_value (mg/dL)
+mean:      9.532 |     11.000 | 
+std:      0.434 |      0.000 | 
+min:      8.500 |     11.000 | 
+max:     10.600 |     11.000 | 
+med:      9.500 |     11.000 
+
+Carbon Dioxide, Total (mEq/L)_value (mEq/L)
+mean:     25.634 |     15.000 | 
+std:      2.868 |      0.000 | 
+min:     15.000 |     15.000 | 
+max:     31.000 |     15.000 | 
+med:     26.000 |     15.000 
+
+Chloride (mEq/L)_value (mEq/L)
+mean:    101.963 |    113.000 | 
+std:      2.767 |      0.000 | 
+min:     97.000 |    113.000 | 
+max:    109.000 |    113.000 | 
+med:    102.000 |    113.000 
+
+Creatinine (mg/dL)_value (md/dL)
+mean:      0.965 |      0.420 | 
+std:      0.352 |      0.000 | 
+min:      0.540 |      0.420 | 
+max:      2.600 |      0.420 | 
+med:      0.910 |      0.420 
+
+Globulin, Total (g/dL)_value (g/dL)
+mean:      2.672 |      1.800 | 
+std:      0.440 |      0.000 | 
+min:      1.900 |      1.800 | 
+max:      4.200 |      1.800 | 
+med:      2.500 |      1.800 
+
+Glucose (mg/dL)_value (mg/dL)
+mean:    107.033 |     48.001 | 
+std:     42.931 |      0.000 | 
+min:     55.000 |     48.001 | 
+max:    310.000 |     48.001 | 
+med:     92.000 |     48.001 
+
+HDL Cholesterol (mg/dL)_value (mg/dL)
+mean:     55.561 |    129.000 | 
+std:     14.608 |      0.000 | 
+min:     32.000 |    129.000 | 
+max:     89.000 |    129.000 | 
+med:     54.000 |    129.000 
+
+INSULIN (ng/mL)_value (ng/mL)
+mean:      0.749 |      0.044 | 
+std:      0.790 |      0.000 | 
+min:      0.054 |      0.044 | 
+max:      6.360 |      0.044 | 
+med:      0.497 |      0.044 
+
+LDL Cholesterol Calculation (mg/dL)_value (mg/dL)
+mean:     92.672 |     -9.251 | 
+std:     38.487 |      0.000 | 
+min:     28.200 |     -9.251 | 
+max:    278.563 |     -9.251 | 
+med:     92.431 |     -9.251 
+
+Potassium (mEq/L)_value (mEq/L)
+mean:      4.227 |      6.000 | 
+std:      0.371 |      0.000 | 
+min:      3.400 |      6.000 | 
+max:      5.200 |      6.000 | 
+med:      4.200 |      6.000 
+
+Protein, Total (g/dL)_value (g/dL)
+mean:      6.963 |      4.800 | 
+std:      0.464 |      0.000 | 
+min:      6.000 |      4.800 | 
+max:      8.500 |      4.800 | 
+med:      7.000 |      4.800 
+
+Sodium (mEq/L)_value (mEq/L)
+mean:    139.425 |    125.000 | 
+std:      2.192 |      0.000 | 
+min:    132.000 |    125.000 | 
+max:    144.000 |    125.000 | 
+med:    139.000 |    125.000 
+
+Total Cholesterol (mg/dL)_value (mg/dL)
+mean:    172.542 |    383.000 | 
+std:     47.088 |      0.000 | 
+min:     91.000 |    383.000 | 
+max:    383.000 |    383.000 | 
+med:    172.000 |    383.000 
+
+Triglycerides (mg/dL)_value (mg/dL)
+mean:    138.243 |     34.001 | 
+std:     65.965 |      0.000 | 
+min:     36.000 |     34.001 | 
+max:    403.000 |     34.001 | 
+med:    123.000 |     34.001 
+
+Urine Albumin (mg/dL)_value (mg/DL)
+mean:      1.169 |      0.001 | 
+std:      3.017 |      0.000 | 
+min:      0.000 |      0.001 | 
+max:     25.080 |      0.001 | 
+med:      0.355 |      0.001 
+
+Urine Creatinine (mg/dL)_value (mg/DL)
+mean:     79.069 |      7.800 | 
+std:     59.521 |      0.000 | 
+min:     10.900 |      7.800 | 
+max:    258.100 |      7.800 | 
+med:     54.300 |      7.800 
+
+clock_visuospatial_executive_time_value
+mean:     63.634 |      1.000 | 
+std:     29.682 |      0.000 | 
+min:      1.000 |      1.000 | 
+max:    179.000 |      1.000 | 
+med:     60.000 |      1.000 
+
+delayed_recall_with_no_clue_time_value
+mean:     53.980 |      0.000 | 
+std:     40.624 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:    175.000 |      0.000 | 
+med:     47.000 |      0.000 
+
+digitspan_time_value
+mean:     37.160 |      7.000 | 
+std:     11.236 |      0.000 | 
+min:     22.000 |      7.000 | 
+max:     93.000 |      7.000 | 
+med:     36.000 |      7.000 
+
+memory_trial1_time_value
+mean:     40.721 |      6.001 | 
+std:     13.631 |      0.000 | 
+min:     20.000 |      6.001 | 
+max:     93.000 |      6.001 | 
+med:     37.000 |      6.001 
+
+memory_trial2_time_value
+mean:     29.739 |      3.000 | 
+std:      7.372 |      0.000 | 
+min:     16.000 |      3.000 | 
+max:     50.000 |      3.000 | 
+med:     28.000 |      3.000 
+
+moca_abstraction_time_value
+mean:     36.857 |      0.001 | 
+std:     17.367 |      0.000 | 
+min:      0.000 |      0.001 | 
+max:    116.000 |      0.001 | 
+med:     32.500 |      0.001 
+
+moca_orientation_time_value
+mean:     27.627 |      0.000 | 
+std:     10.861 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     65.000 |      0.000 | 
+med:     26.000 |      0.000 
+
+moca_total_score_value
+mean:     25.081 |     30.000 | 
+std:      3.328 |      0.000 | 
+min:     13.000 |     30.000 | 
+max:     30.000 |     30.000 | 
+med:     25.000 |     30.000 
+
+naming_time_value
+mean:     27.123 |      3.000 | 
+std:     13.150 |      0.000 | 
+min:      3.000 |      3.000 | 
+max:     76.000 |      3.000 | 
+med:     24.000 |      3.000 
+
+repetition_time_value
+mean:     40.250 |      4.000 | 
+std:      8.368 |      0.000 | 
+min:     26.000 |      4.000 | 
+max:     66.000 |      4.000 | 
+med:     38.000 |      4.000 
+
+subtraction_time_value
+mean:     64.765 |      8.000 | 
+std:     70.669 |      0.000 | 
+min:     24.000 |      8.000 | 
+max:    495.000 |      8.000 | 
+med:     46.000 |      8.000 
+
+cube_visuospatial_executive_time_value
+mean:     63.456 |      4.000 | 
+std:     54.776 |      0.000 | 
+min:      4.000 |      4.000 | 
+max:    319.000 |      4.000 | 
+med:     46.000 |      4.000 
+
+lettera_time_value
+mean:     49.590 |      7.000 | 
+std:     10.446 |      0.000 | 
+min:     32.000 |      7.000 | 
+max:     86.000 |      7.000 | 
+med:     46.000 |      7.000 
+
+trails_visuospatial_executive_time_value
+mean:     44.419 |      3.001 | 
+std:     19.240 |      0.000 | 
+min:      3.000 |      3.001 | 
+max:    107.000 |      3.001 | 
+med:     40.000 |      3.001 
+
+moca_combined_mis_score_value
+mean:     11.759 |     15.000 | 
+std:      3.564 |      0.000 | 
+min:      3.000 |     15.000 | 
+max:     15.000 |     15.000 | 
+med:     13.000 |     15.000 
+
+memory_trial1_value
+mean:      4.686 |      5.000 | 
+std:      0.551 |      0.000 | 
+min:      3.000 |      5.000 | 
+max:      5.000 |      5.000 | 
+med:      5.000 |      5.000 
+
+memory_trial2_value
+mean:      4.936 |      5.000 | 
+std:      0.244 |      0.000 | 
+min:      4.000 |      5.000 | 
+max:      5.000 |      5.000 | 
+med:      5.000 |      5.000 
+
+moca_abstraction_value
+mean:      1.866 |      2.000 | 
+std:      0.395 |      0.000 | 
+min:      0.000 |      2.000 | 
+max:      2.000 |      2.000 | 
+med:      2.000 |      2.000 
+
+moca_orientation_value
+mean:      5.895 |      6.000 | 
+std:      0.307 |      0.000 | 
+min:      5.000 |      6.000 | 
+max:      6.000 |      6.000 | 
+med:      6.000 |      6.000 
+
+naming_value
+mean:      2.772 |      3.000 | 
+std:      0.597 |      0.000 | 
+min:      0.000 |      3.000 | 
+max:      3.000 |      3.000 | 
+med:      3.000 |      3.000 
+
+repetition_value
+mean:      1.362 |      2.000 | 
+std:      0.716 |      0.000 | 
+min:      0.000 |      2.000 | 
+max:      2.000 |      2.000 | 
+med:      2.000 |      2.000 
+
+subtraction_value
+mean:      2.388 |      3.000 | 
+std:      0.961 |      0.000 | 
+min:      0.000 |      3.000 | 
+max:      3.000 |      3.000 | 
+med:      3.000 |      3.000 
+
+Rate
+mean:     65.614 |     35.000 | 
+std:     10.299 |      0.000 | 
+min:     46.000 |     35.000 | 
+max:     93.000 |     35.000 | 
+med:     65.000 |     35.000 
+
+PR
+mean:    174.969 |     30.000 | 
+std:     49.978 |      0.000 | 
+min:     38.000 |     30.000 | 
+max:    416.000 |     30.000 | 
+med:    171.000 |     30.000 
+
+QRSD
+mean:     92.914 |     70.000 | 
+std:     14.531 |      0.000 | 
+min:     72.000 |     70.000 | 
+max:    154.000 |     70.000 | 
+med:     91.000 |     70.000 
+
+QT
+mean:    409.601 |    316.000 | 
+std:     33.829 |      0.000 | 
+min:    316.000 |    316.000 | 
+max:    492.000 |    316.000 | 
+med:    411.000 |    316.000 
+
+QTc
+mean:    425.002 |    357.000 | 
+std:     23.398 |      0.000 | 
+min:    377.000 |    357.000 | 
+max:    480.000 |    357.000 | 
+med:    424.500 |    357.000 
+
+P
+mean:     37.382 |    255.000 | 
+std:     37.131 |      0.000 | 
+min:    -87.000 |    255.000 | 
+max:    219.000 |    255.000 | 
+med:     44.000 |    255.000 
+
+QRS
+mean:     37.029 |    249.000 | 
+std:     38.027 |      0.000 | 
+min:    -80.000 |    249.000 | 
+max:    100.000 |    249.000 | 
+med:     40.000 |    249.000 
+
+T
+mean:     29.377 |    204.000 | 
+std:     29.769 |      0.000 | 
+min:    -42.000 |    204.000 | 
+max:    153.000 |    204.000 | 
+med:     29.000 |    204.000 
+
+TRAIN STATISTICS (train vs. syn) 
+heart_rate_mean
+mean:     76.159 |     49.700 | 
+std:      9.455 |      0.000 | 
+min:     49.700 |     49.700 | 
+max:    111.640 |     49.700 | 
+med:     75.630 |     49.700 
+
+blood_glucose_mean
+mean:    133.378 |    338.690 | 
+std:     30.248 |      0.000 | 
+min:     58.970 |    338.690 | 
+max:    338.690 |    338.690 | 
+med:    125.740 |    338.690 
+
+resp_rate_mean
+mean:     14.729 |     12.190 | 
+std:      0.948 |      0.000 | 
+min:     12.190 |     12.190 | 
+max:     19.920 |     12.190 | 
+med:     14.550 |     12.190 
+
+stress_mean
+mean:     54.828 |     12.080 | 
+std:     17.720 |      0.000 | 
+min:     12.080 |     12.080 | 
+max:     98.150 |     12.080 | 
+med:     53.910 |     12.080 
+
+blood_glucose_std
+mean:     23.881 |      6.370 | 
+std:     11.921 |      0.000 | 
+min:      6.370 |      6.370 | 
+max:    102.270 |      6.370 | 
+med:     20.450 |      6.370 
+
+total_steps
+mean:  10172.189 |      0.051 | 
+std:   6975.397 |      0.000 | 
+min:      0.000 |      0.051 | 
+max:  51169.476 |      0.051 | 
+med:   8980.000 |      0.051 
+
+resting_heart_rate
+mean:     73.994 |     46.730 | 
+std:      8.859 |      0.000 | 
+min:     46.730 |     46.730 | 
+max:    110.510 |     46.730 | 
+med:     73.620 |     46.730 
+
+total_kcal
+mean:    625.943 |      0.006 | 
+std:    787.347 |      0.000 | 
+min:      0.000 |      0.006 | 
+max:   5615.619 |      0.006 | 
+med:    322.819 |      0.006 
+
+sleep_light_hrs
+mean:      3.010 |      0.000 | 
+std:      1.189 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     10.500 |      0.000 | 
+med:      2.920 |      0.000 
+
+sleep_deep_hrs
+mean:      1.602 |      0.000 | 
+std:      1.106 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      6.670 |      0.000 | 
+med:      1.420 |      0.000 
+
+sleep_rem_hrs
+mean:      1.420 |      0.000 | 
+std:      1.083 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      8.250 |      0.000 | 
+med:      1.330 |      0.000 
+
+sleep_awake_hrs
+mean:      1.872 |      0.000 | 
+std:      1.412 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     10.330 |      0.000 | 
+med:      1.670 |      0.000 
+
+act_generic_hrs
+mean:      0.643 |      0.000 | 
+std:      1.517 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     21.580 |      0.000 | 
+med:      0.080 |      0.000 
+
+act_running_hrs
+mean:      0.027 |      0.000 | 
+std:      0.129 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:      2.750 |      0.000 | 
+med:      0.000 |      0.000 
+
+act_walking_hrs
+mean:      3.024 |      0.000 | 
+std:      2.123 |      0.000 | 
+min:      0.000 |      0.000 | 
+max:     13.580 |      0.000 | 
+med:      2.670 |      0.000 
+
+act_sedentary_hrs
+mean:     20.305 |     24.000 | 
+std:      2.648 |      0.000 | 
+min:      2.080 |     24.000 | 
+max:     24.000 |     24.000 | 
+med:     20.830 |     24.000 
+
+A/G Ratio_value
+mean:      1.643 |      0.636 | 
+std:      0.277 |      0.000 | 
+min:      0.636 |      0.636 | 
+max:      2.474 |      0.636 | 
+med:      1.640 |      0.636 
+
+ALT (IU/L)_value (IU/L)
+mean:     21.596 |      6.000 | 
+std:     12.442 |      0.000 | 
+min:      6.000 |      6.000 | 
+max:    135.000 |      6.000 | 
+med:     19.000 |      6.000 
+
+AST (IU/L)_value (IU/L)
+mean:     20.168 |      7.000 | 
+std:      7.619 |      0.000 | 
+min:      8.000 |      7.000 | 
+max:     98.000 |      7.000 | 
+med:     19.000 |      7.000 
+
+Albumin (g/dL)_value (g/dL)
+mean:      4.297 |      2.500 | 
+std:      0.289 |      0.000 | 
+min:      2.500 |      2.500 | 
+max:      5.100 |      2.500 | 
+med:      4.300 |      2.500 
+
+Alkaline Phosphatase (IU/L)_value (IU/L)
+mean:     73.909 |     23.000 | 
+std:     23.452 |      0.000 | 
+min:     23.000 |     23.000 | 
+max:    189.000 |     23.000 | 
+med:     71.000 |     23.000 
+
+BUN (mg/dL)_value (mg/dL)
+mean:     16.644 |      5.000 | 
+std:      7.320 |      0.000 | 
+min:      5.000 |      5.000 | 
+max:     82.000 |      5.000 | 
+med:     15.000 |      5.000 
+
+BUN/Creatinine ratio_value
+mean:     18.653 |     42.857 | 
+std:      5.690 |      0.000 | 
+min:      5.589 |     42.857 | 
+max:     37.705 |     42.857 | 
+med:     17.949 |     42.857 
+
+Bilirubin Total (mg/dL)_value (mg/dL)
+mean:      0.552 |      0.200 | 
+std:      0.261 |      0.000 | 
+min:      0.200 |      0.200 | 
+max:      2.200 |      0.200 | 
+med:      0.500 |      0.200 
+
+C-Peptide (ng/mL)_value (ng/mL)
+mean:      3.051 |      0.002 | 
+std:      2.040 |      0.000 | 
+min:      0.002 |      0.002 | 
+max:     17.270 |      0.002 | 
+med:      2.547 |      0.002 
+
+CRP - HS (mg/L)_value (mg/L)
+mean:      3.869 |      0.100 | 
+std:      8.344 |      0.000 | 
+min:      0.100 |      0.100 | 
+max:    112.300 |      0.100 | 
+med:      1.400 |      0.100 
+
+Calcium (mg/dL)_value (mg/dL)
+mean:      9.455 |     11.000 | 
+std:      0.406 |      0.000 | 
+min:      6.500 |     11.000 | 
+max:     11.000 |     11.000 | 
+med:      9.400 |     11.000 
+
+Carbon Dioxide, Total (mEq/L)_value (mEq/L)
+mean:     25.609 |     15.000 | 
+std:      2.400 |      0.000 | 
+min:     16.000 |     15.000 | 
+max:     35.000 |     15.000 | 
+med:     26.000 |     15.000 
+
+Chloride (mEq/L)_value (mEq/L)
+mean:    102.567 |    113.000 | 
+std:      2.820 |      0.000 | 
+min:     87.000 |    113.000 | 
+max:    113.000 |    113.000 | 
+med:    103.000 |    113.000 
+
+Creatinine (mg/dL)_value (md/dL)
+mean:      0.919 |      0.420 | 
+std:      0.393 |      0.000 | 
+min:      0.420 |      0.420 | 
+max:      5.010 |      0.420 | 
+med:      0.850 |      0.420 
+
+Globulin, Total (g/dL)_value (g/dL)
+mean:      2.683 |      1.800 | 
+std:      0.439 |      0.000 | 
+min:      1.800 |      1.800 | 
+max:      5.500 |      1.800 | 
+med:      2.600 |      1.800 
+
+Glucose (mg/dL)_value (mg/dL)
+mean:    103.425 |     48.001 | 
+std:     33.365 |      0.000 | 
+min:     48.000 |     48.001 | 
+max:    576.000 |     48.001 | 
+med:     96.000 |     48.001 
+
+HDL Cholesterol (mg/dL)_value (mg/dL)
+mean:     56.559 |    129.000 | 
+std:     16.429 |      0.000 | 
+min:     24.000 |    129.000 | 
+max:    129.000 |    129.000 | 
+med:     54.000 |    129.000 
+
+INSULIN (ng/mL)_value (ng/mL)
+mean:      0.950 |      0.044 | 
+std:      1.028 |      0.000 | 
+min:      0.044 |      0.044 | 
+max:     12.504 |      0.044 | 
+med:      0.614 |      0.044 
+
+LDL Cholesterol Calculation (mg/dL)_value (mg/dL)
+mean:     90.290 |     -9.251 | 
+std:     36.047 |      0.000 | 
+min:     -9.251 |     -9.251 | 
+max:    236.473 |     -9.251 | 
+med:     88.343 |     -9.251 
+
+Potassium (mEq/L)_value (mEq/L)
+mean:      4.234 |      6.000 | 
+std:      0.377 |      0.000 | 
+min:      3.100 |      6.000 | 
+max:      6.000 |      6.000 | 
+med:      4.200 |      6.000 
+
+Protein, Total (g/dL)_value (g/dL)
+mean:      6.980 |      4.800 | 
+std:      0.497 |      0.000 | 
+min:      4.800 |      4.800 | 
+max:      9.000 |      4.800 | 
+med:      7.000 |      4.800 
+
+Sodium (mEq/L)_value (mEq/L)
+mean:    140.004 |    125.000 | 
+std:      2.212 |      0.000 | 
+min:    125.000 |    125.000 | 
+max:    148.000 |    125.000 | 
+med:    140.000 |    125.000 
+
+Total Cholesterol (mg/dL)_value (mg/dL)
+mean:    172.037 |    383.000 | 
+std:     43.568 |      0.000 | 
+min:     52.000 |    383.000 | 
+max:    317.000 |    383.000 | 
+med:    171.000 |    383.000 
+
+Triglycerides (mg/dL)_value (mg/dL)
+mean:    145.449 |     34.001 | 
+std:    101.781 |      0.000 | 
+min:     34.000 |     34.001 | 
+max:   1324.000 |     34.001 | 
+med:    124.000 |     34.001 
+
+Urine Albumin (mg/dL)_value (mg/DL)
+mean:      3.375 |      0.001 | 
+std:     25.411 |      0.000 | 
+min:      0.000 |      0.001 | 
+max:    581.400 |      0.001 | 
+med:      0.420 |      0.001 
+
+Urine Creatinine (mg/dL)_value (mg/DL)
+mean:     89.045 |      7.800 | 
+std:     69.915 |      0.000 | 
+min:      7.800 |      7.800 | 
+max:    438.100 |      7.800 | 
+med:     71.500 |      7.800 
+
+clock_visuospatial_executive_time_value
+mean:     61.460 |      1.000 | 
+std:     34.404 |      0.000 | 
+min:      1.000 |      1.000 | 
+max:    286.000 |      1.000 | 
+med:     52.000 |      1.000 
+
+delayed_recall_with_no_clue_time_value
+mean:     57.994 |      0.000 | 
+std:     45.287 |      0.000 | 
+min:      3.000 |      0.000 | 
+max:    380.000 |      0.000 | 
+med:     48.000 |      0.000 
+
+digitspan_time_value
+mean:     35.005 |      7.000 | 
+std:      7.350 |      0.000 | 
+min:      7.000 |      7.000 | 
+max:     88.000 |      7.000 | 
+med:     34.000 |      7.000 
+
+memory_trial1_time_value
+mean:     39.860 |      6.001 | 
+std:     31.810 |      0.000 | 
+min:      6.000 |      6.001 | 
+max:    642.000 |      6.001 | 
+med:     36.000 |      6.001 
+
+memory_trial2_time_value
+mean:     30.174 |      3.000 | 
+std:      9.901 |      0.000 | 
+min:      3.000 |      3.000 | 
+max:     82.000 |      3.000 | 
+med:     28.000 |      3.000 
+
+moca_abstraction_time_value
+mean:     45.108 |      0.001 | 
+std:     40.020 |      0.000 | 
+min:      6.000 |      0.001 | 
+max:    536.000 |      0.001 | 
+med:     35.000 |      0.001 
+
+moca_orientation_time_value
+mean:     28.764 |      0.000 | 
+std:     11.319 |      0.000 | 
+min:      4.000 |      0.000 | 
+max:    129.000 |      0.000 | 
+med:     26.000 |      0.000 
+
+moca_total_score_value
+mean:     25.521 |     30.000 | 
+std:      3.244 |      0.000 | 
+min:      6.000 |     30.000 | 
+max:     30.000 |     30.000 | 
+med:     26.000 |     30.000 
+
+naming_time_value
+mean:     26.632 |      3.000 | 
+std:     13.005 |      0.000 | 
+min:     11.000 |      3.000 | 
+max:    218.000 |      3.000 | 
+med:     24.000 |      3.000 
+
+repetition_time_value
+mean:     39.577 |      4.000 | 
+std:      8.972 |      0.000 | 
+min:      4.000 |      4.000 | 
+max:     98.000 |      4.000 | 
+med:     38.000 |      4.000 
+
+subtraction_time_value
+mean:     57.236 |      8.000 | 
+std:     32.769 |      0.000 | 
+min:      8.000 |      8.000 | 
+max:    320.000 |      8.000 | 
+med:     47.000 |      8.000 
+
+cube_visuospatial_executive_time_value
+mean:     59.572 |      4.000 | 
+std:     53.823 |      0.000 | 
+min:     11.000 |      4.000 | 
+max:    381.000 |      4.000 | 
+med:     38.000 |      4.000 
+
+lettera_time_value
+mean:     48.106 |      7.000 | 
+std:     11.029 |      0.000 | 
+min:      7.000 |      7.000 | 
+max:    110.000 |      7.000 | 
+med:     45.000 |      7.000 
+
+trails_visuospatial_executive_time_value
+mean:     50.100 |      3.001 | 
+std:     42.659 |      0.000 | 
+min:      5.000 |      3.001 | 
+max:    592.000 |      3.001 | 
+med:     39.000 |      3.001 
+
+moca_combined_mis_score_value
+mean:     12.313 |     15.000 | 
+std:      3.004 |      0.000 | 
+min:      0.000 |     15.000 | 
+max:     15.000 |     15.000 | 
+med:     13.000 |     15.000 
+
+memory_trial1_value
+mean:      4.472 |      5.000 | 
+std:      0.797 |      0.000 | 
+min:      0.000 |      5.000 | 
+max:      5.000 |      5.000 | 
+med:      5.000 |      5.000 
+
+memory_trial2_value
+mean:      4.849 |      5.000 | 
+std:      0.459 |      0.000 | 
+min:      2.000 |      5.000 | 
+max:      5.000 |      5.000 | 
+med:      5.000 |      5.000 
+
+moca_abstraction_value
+mean:      1.858 |      2.000 | 
+std:      0.418 |      0.000 | 
+min:      0.000 |      2.000 | 
+max:      2.000 |      2.000 | 
+med:      2.000 |      2.000 
+
+moca_orientation_value
+mean:      5.942 |      6.000 | 
+std:      0.270 |      0.000 | 
+min:      3.000 |      6.000 | 
+max:      6.000 |      6.000 | 
+med:      6.000 |      6.000 
+
+naming_value
+mean:      2.885 |      3.000 | 
+std:      0.361 |      0.000 | 
+min:      0.000 |      3.000 | 
+max:      3.000 |      3.000 | 
+med:      3.000 |      3.000 
+
+repetition_value
+mean:      1.377 |      2.000 | 
+std:      0.741 |      0.000 | 
+min:      0.000 |      2.000 | 
+max:      2.000 |      2.000 | 
+med:      2.000 |      2.000 
+
+subtraction_value
+mean:      2.554 |      3.000 | 
+std:      0.865 |      0.000 | 
+min:      0.000 |      3.000 | 
+max:      3.000 |      3.000 | 
+med:      3.000 |      3.000 
+
+Rate
+mean:     66.187 |     35.000 | 
+std:     11.102 |      0.000 | 
+min:     35.000 |     35.000 | 
+max:    112.000 |     35.000 | 
+med:     65.000 |     35.000 
+
+PR
+mean:    166.570 |     30.000 | 
+std:     28.480 |      0.000 | 
+min:     30.000 |     30.000 | 
+max:    355.000 |     30.000 | 
+med:    163.000 |     30.000 
+
+QRSD
+mean:     96.229 |     70.000 | 
+std:     16.155 |      0.000 | 
+min:     70.000 |     70.000 | 
+max:    176.000 |     70.000 | 
+med:     93.000 |     70.000 
+
+QT
+mean:    412.076 |    316.000 | 
+std:     32.189 |      0.000 | 
+min:    329.000 |    316.000 | 
+max:    614.000 |    316.000 | 
+med:    413.000 |    316.000 
+
+QTc
+mean:    429.203 |    357.000 | 
+std:     25.000 |      0.000 | 
+min:    357.000 |    357.000 | 
+max:    577.000 |    357.000 | 
+med:    427.000 |    357.000 
+
+P
+mean:     50.937 |    255.000 | 
+std:     29.344 |      0.000 | 
+min:    -66.000 |    255.000 | 
+max:    255.000 |    255.000 | 
+med:     55.000 |    255.000 
+
+QRS
+mean:     36.881 |    249.000 | 
+std:     45.295 |      0.000 | 
+min:   -127.000 |    249.000 | 
+max:    249.000 |    249.000 | 
+med:     43.000 |    249.000 
+
+T
+mean:     37.671 |    204.000 | 
+std:     30.782 |      0.000 | 
+min:    -67.000 |    204.000 | 
+max:    204.000 |    204.000 | 
+med:     37.000 |    204.000 
+
+Checking duplicates:Df real shape: (4537, 108)
+Df syn shape: (5000, 108)
+ Df real after dropping duplicates: 4537
+Df syn after dropping duplicates: 2
+Df syn + df real after dropping duplicates: 4539
