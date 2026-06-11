@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=ent4
+#SBATCH --job-name=rein4
 #SBATCH --partition=gpu
 #SBATCH --qos=gpu-short
 #SBATCH --nodes=1
@@ -12,4 +12,4 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation/no_entropy/seed4 --RESULT_CSV ablation --RUN_NAME no_entropy_4 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed4 --SEED 4
+python -m RL.train --OUT_DIR ablation/reinforce/seed4 --RESULT_CSV ablation.csv --RUN_NAME reinforce_4 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed4 --SEED 4
