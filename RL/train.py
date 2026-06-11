@@ -219,6 +219,8 @@ def main():
         H = H.override(
             DEVICE = "cuda" if torch.cuda.is_available() else "cpu", 
             NPY_PATH = f"{H.DATA_PATH}/min_max_log.npy", 
+            ENT_BETA = 0, 
+
         )
     elif args["DATASET"] == "MIMIC": 
         H = HyperParams_MIMIC().override(**args)   
