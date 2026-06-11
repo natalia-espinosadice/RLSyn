@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=18)
+
+Top 10 features for PC1:
+Chronic pullmonary problems                   0.2992
+QT                                            0.2328
+Total Cholesterol (mg/dL)_value (mg/dL)       0.2186
+Potassium (mEq/L)_value (mEq/L)               0.2080
+P                                             0.2050
+QRS                                           0.1926
+A/G Ratio_value                               0.1860
+Carbon Dioxide, Total (mEq/L)_value (mEq/L)   0.1802
+stress_mean                                   0.1686
+Protein, Total (g/dL)_value (g/dL)            0.1644
+
+Top 10 features for PC2:
+ABNORMAL                            0.4490
+fluency_language_value              0.3129
+cube_visuospatial_executive_value   0.2769
+BORDERLINE                          0.2720
+High blood cholesterol              0.2647
+Urinary problems                    0.2629
+Obesity                             0.2515
+High blood pressure                 0.2478
+Arthritis                           0.2014
+Dry eye (1+)                        0.1921

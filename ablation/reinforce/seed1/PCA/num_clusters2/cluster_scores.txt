@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=18)
+
+Top 10 features for PC1:
+Kidney problems                       0.2283
+Calcium (mg/dL)_value (mg/dL)         0.2168
+trails_visuospatial_executive_value   0.2165
+repetition_time_value                 0.2037
+lettera_time_value                    0.1976
+heart_rate_mean                       0.1868
+resting_heart_rate                    0.1865
+QRS                                   0.1860
+A/G Ratio_value                       0.1786
+ABNORMAL                              0.1755
+
+Top 10 features for PC2:
+High blood cholesterol                0.3477
+High blood pressure                   0.3443
+Type 2 Diabetes                       0.2767
+Cataracts (1+ eyes)                   0.2470
+Arthritis                             0.2447
+Kidney problems                       0.2217
+Obesity                               0.2095
+trails_visuospatial_executive_value   0.2022
+cube_visuospatial_executive_value     0.1850
+ABNORMAL                              0.1849

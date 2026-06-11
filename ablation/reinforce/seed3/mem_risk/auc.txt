@@ -1,0 +1,5 @@
+Mem risk AUCS
+[real] ROC-AUC = 1.0000
+[real] ROC-AUC BAL = 0.8920
+[synth] ROC-AUC = 0.4406
+[synth] ROC-AUC BAL = 0.4526

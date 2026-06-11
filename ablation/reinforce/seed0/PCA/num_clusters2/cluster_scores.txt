@@ -1,0 +1,25 @@
+set 0: score=-2.0000 (PCs=5)
+
+Top 10 features for PC1:
+Urine Albumin (mg/dL)_value (mg/DL)   0.1532
+act_running_hrs                       0.1525
+moca_orientation_value                0.1510
+act_generic_hrs                       0.1497
+CRP - HS (mg/L)_value (mg/L)          0.1490
+naming_value                          0.1479
+memory_trial2_value                   0.1473
+memory_trial1_time_value              0.1456
+moca_abstraction_value                0.1440
+INSULIN (ng/mL)_value (ng/mL)         0.1432
+
+Top 10 features for PC2:
+NORMAL                              0.2927
+fluency_language_value              0.2849
+Arthritis                           0.2846
+cube_visuospatial_executive_value   0.2759
+Type 2 Diabetes                     0.2702
+High blood cholesterol              0.2663
+Obesity                             0.2586
+Age-related macular degeneration    0.2554
+Cataracts (1+ eyes)                 0.2514
+ABNORMAL                            0.2430

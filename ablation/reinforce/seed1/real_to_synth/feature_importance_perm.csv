@@ -1,0 +1,108 @@
+feature,avg_drop_acc
+Circulation problems,0.011679999999999986
+BORDERLINE,0.002640000000000002
+High blood pressure,0.0025600000000000024
+trails_visuospatial_executive_value,0.002280000000000002
+Arthritis,0.0017600000000000016
+High blood cholesterol,0.0014800000000000013
+Cataracts (1+ eyes),0.0011600000000000009
+Dry eye (1+),0.0010000000000000009
+cube_visuospatial_executive_value,0.000920000000000001
+Digestive problems,0.0008800000000000008
+Diabetic retinopathy (1+),0.0005200000000000005
+Hearing impairment,0.0002800000000000002
+Glaucoma (1+),0.00020000000000000017
+Marijuana user,8.000000000000007e-05
+fluency_language_value,8.000000000000003e-05
+Age-related macular degeneration,0.0
+Multiple sclerosis,0.0
+Albumin (g/dL)_value (g/dL),0.0
+BUN (mg/dL)_value (mg/dL),0.0
+A/G Ratio_value,0.0
+BUN/Creatinine ratio_value,0.0
+"Carbon Dioxide, Total (mEq/L)_value (mEq/L)",0.0
+Calcium (mg/dL)_value (mg/dL),0.0
+C-Peptide (ng/mL)_value (ng/mL),0.0
+AST (IU/L)_value (IU/L),0.0
+ALT (IU/L)_value (IU/L),0.0
+Alkaline Phosphatase (IU/L)_value (IU/L),0.0
+OTHERWISE NORMAL,0.0
+NORMAL,0.0
+Creatinine (mg/dL)_value (md/dL),0.0
+"Globulin, Total (g/dL)_value (g/dL)",0.0
+INSULIN (ng/mL)_value (ng/mL),0.0
+HDL Cholesterol (mg/dL)_value (mg/dL),0.0
+LDL Cholesterol Calculation (mg/dL)_value (mg/dL),0.0
+Glucose (mg/dL)_value (mg/dL),0.0
+Low blood pressure,0.0
+Mild cognitive impairmen,0.0
+Parkinson's disease,0.0
+Potassium (mEq/L)_value (mEq/L),0.0
+Osteoporosis,0.0
+Chloride (mEq/L)_value (mEq/L),0.0
+CRP - HS (mg/L)_value (mg/L),0.0
+Bilirubin Total (mg/dL)_value (mg/dL),0.0
+naming_time_value,0.0
+naming_value,0.0
+repetition_value,0.0
+digitspan_time_value,0.0
+lettera_value,0.0
+memory_trial1_time_value,0.0
+P,0.0
+Other heart issues (pacemaker),0.0
+Rate,0.0
+QRSD,0.0
+QT,0.0
+QTc,0.0
+Sodium (mEq/L)_value (mEq/L),0.0
+Retinal vascular occlusion,0.0
+"Protein, Total (g/dL)_value (g/dL)",0.0
+PR,0.0
+blood_glucose_std,0.0
+act_sedentary_hrs,0.0
+Triglycerides (mg/dL)_value (mg/dL),0.0
+Total Cholesterol (mg/dL)_value (mg/dL),0.0
+act_generic_hrs,0.0
+Urine Creatinine (mg/dL)_value (mg/DL),0.0
+act_running_hrs,0.0
+Urine Albumin (mg/dL)_value (mg/DL),0.0
+cube_visuospatial_executive_time_value,0.0
+clock_visuospatial_executive_time_value,0.0
+blood_glucose_mean,0.0
+act_walking_hrs,0.0
+delayed_recall_with_no_clue_time_value,0.0
+heart_rate_mean,0.0
+T,0.0
+QRS,0.0
+sleep_light_hrs,0.0
+sleep_rem_hrs,0.0
+subtraction_time_value,0.0
+repetition_time_value,0.0
+resting_heart_rate,0.0
+sleep_awake_hrs,0.0
+memory_trial1_value,0.0
+lettera_time_value,0.0
+memory_trial2_value,0.0
+moca_abstraction_time_value,0.0
+moca_abstraction_value,0.0
+moca_combined_mis_score_value,0.0
+moca_orientation_time_value,0.0
+moca_orientation_value,0.0
+moca_total_score_value,0.0
+memory_trial2_time_value,0.0
+subtraction_value,0.0
+total_kcal,0.0
+total_steps,0.0
+stress_mean,0.0
+trails_visuospatial_executive_time_value,0.0
+resp_rate_mean,0.0
+sleep_deep_hrs,0.0
+Stroke,-8.673617379884036e-20
+ABNORMAL,-8.000000000000009e-05
+Heart attack,-0.00012000000000000006
+Other neurological conditions,-0.0002400000000000002
+Cancer,-0.0005600000000000005
+Urinary problems,-0.0009200000000000007
+Chronic pullmonary problems,-0.0010800000000000009
+Obesity,-0.001200000000000001
+Kidney problems,-0.011680000000000012
