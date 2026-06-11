@@ -12,4 +12,4 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation/reinforce/seed3 --RESULT_CSV ablation.csv --RUN_NAME reinforce_3 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed3 --SEED 3
+python -m RL.train --OUT_DIR ablation/reinforce_disc1/seed3 --RESULT_CSV ablation.csv --RUN_NAME reinforce_disc1_3 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed3 --SEED 3

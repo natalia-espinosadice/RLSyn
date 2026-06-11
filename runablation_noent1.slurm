@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=reinforce1
+#SBATCH --job-name=reinforce_disc11
 #SBATCH --partition=gpu
 #SBATCH --qos=gpu-short
 #SBATCH --nodes=1
@@ -12,4 +12,4 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation/reinforce/seed1 --RESULT_CSV ablation.csv --RUN_NAME reinforce_1 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed1 --SEED 1
+python -m RL.train --OUT_DIR ablation/reinforce_disc1/seed1 --RESULT_CSV ablation.csv --RUN_NAME reinforce_disc1_1 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed1 --SEED 1

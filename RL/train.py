@@ -52,7 +52,7 @@ def REINFORCE(df_train, real, loader, H):
         with open(f"{H.OUT_DIR}/losses/G_loss.txt", "a") as f:
             f.write(f"ITERATION {it:.4f} | TOTAL G LOSS {loss_G:.4f}\n")
         #discriminator update 
-        for d_it in range(H.DISC_STEPS):
+        for d_it in range(1):
             try:
                 real_batch, = next(real_iter)
             except StopIteration:
