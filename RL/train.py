@@ -74,7 +74,7 @@ def REINFORCE(df_train, real, loader, H):
         if it % 50 == 0:
             print(f"{it} complete")
             with open(f"{H.OUT_DIR}/losses/output.txt", "a") as f:
-                f.write(f"iteration {it} | D LOSS = {loss_D.item():.4f} | G LOSS = {loss_G.item():.4f} | AVG R ={rewards.mean():.4f} | mean_pen: {(mean_pen.item()*H.MEAN_PENALTY_SCALE):.4f} |  \n")
+                f.write(f"iteration {it} | D LOSS = {loss_D.item():.4f} | G LOSS = {loss_G.item():.4f} | AVG R ={rewards.mean():.4f} |  \n")
     #generate and save  
     z = torch.randn(H.NUM_SAMPLES, H.NOISE_DIM, device=H.DEVICE)
     synthetic, _, _, _ = G.sample(z)
