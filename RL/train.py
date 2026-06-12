@@ -476,7 +476,7 @@ def main():
     real = torch.tensor(df_train.values, dtype=torch.float32)
     loader = DataLoader(TensorDataset(real), batch_size=H.BATCH, shuffle=True, num_workers=0) 
     #df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
-    df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
+    #df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
     df_syn, elapsed_time = no_value(df_train, real, loader, H)
 
     if H.DATASET == "AIREADI": 
