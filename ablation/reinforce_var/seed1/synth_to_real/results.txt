@@ -1,0 +1,16 @@
+--------5-FOLD: TRAIN ON SYNTHETIC / TEST ON REAL--------
+Target distribution (real):
+Type 2 Diabetes
+0.0    2827
+1.0    1710
+Name: count, dtype: int64
+
+Fold 1  AUC=0.9086  Acc=0.852  Prec=0.813  Rec=0.774  F1=0.793
+Fold 2  AUC=0.8262  Acc=0.762  Prec=0.726  Rec=0.558  F1=0.631
+Fold 3  AUC=0.7864  Acc=0.725  Prec=0.697  Rec=0.620  F1=0.657
+Fold 4  AUC=0.7916  Acc=0.730  Prec=0.634  Rec=0.599  F1=0.616
+Fold 5  AUC=0.7505  Acc=0.708  Prec=0.601  Rec=0.621  F1=0.611
+
+Cross-validation summary
+Mean AUC : 0.8127 ± 0.0536
+Mean Acc : 0.755 ± 0.052
