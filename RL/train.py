@@ -253,6 +253,94 @@ def train(df_train, real, loader, H):
     return df_syn, elapsed_time
 
 
+
+def no_value(df_train, real, loader, H): 
+    start_time = time.time() 
+    #instantiate
+    G, D = build_models(H)
+    opt_G = torch.optim.Adam(G.parameters(), lr=H.G_LR)
+    opt_D = torch.optim.Adam(D.parameters(), lr=H.D_LR)
+    os.makedirs(f"{H.OUT_DIR}/losses", exist_ok=True)
+    with open(f"{H.OUT_DIR}/losses/output.txt", "w") as f:
+        f.write(f"Logging\n")
+    with open(f"{H.OUT_DIR}/losses/G_loss.txt", "w") as f:
+        f.write(f"Logging\n")
+    #ppo training loop
+    real_iter = iter(loader)
+    for it in range(H.ITERS):
+        #rollout policy 
+        z = torch.randn(H.BATCH, H.NOISE_DIM, device=H.DEVICE)
+        rows, logp_old, _, v_old = G.sample(z)
+        #detach for grad
+        rows = rows.detach()      
+        logp_old = logp_old.detach()
+        v_old = v_old.detach()
+        with torch.no_grad():
+            rewards = torch.sigmoid(D(rows)).squeeze()
+        #NO VALUE
+        adv_n = (rewards - rewards.mean()) / (rewards.std() + 1e-8)
+        #mean penalty 
+        with torch.no_grad():
+            target_mean = real.mean(0, keepdim=True).to(H.DEVICE)
+        num_fake = rows[:, :len(H.NUM_COLS)]
+        mean_pen = (num_fake.mean(0) - target_mean[0, :len(H.NUM_COLS)]).pow(2).mean()
+        #PPO update 
+        for _ in range(H.PPO_EPOCHS):
+            logp, v = G.eval_action(z, rows)
+            ratio = (logp - logp_old).exp()
+            surr1 = ratio * adv_n
+            surr2 = torch.clamp(ratio, 1-H.CLIP_EPS, 1+H.CLIP_EPS) * adv_n 
+            loss_pi = -(torch.min(surr1, surr2)).mean()
+            entropy = -logp.mean()
+            loss_G = loss_pi - H.ENT_BETA * entropy
+            loss_G += H.MEAN_PENALTY_SCALE * mean_pen 
+            opt_G.zero_grad()
+            loss_G.backward()
+            opt_G.step()
+            with open(f"{H.OUT_DIR}/losses/G_loss.txt", "a") as f:
+                f.write(f"ITERATION {it:.4f} | LOSS PI {loss_pi:.4f}  ENTROPY {(H.ENT_BETA*entropy):.4f} | MEAN PEN (*.2) {(H.MEAN_PENALTY_SCALE * mean_pen):.4f} | TOTAL G LOSS {loss_G:.4f}\n")
+        #discriminator update 
+        for d_it in range(H.DISC_STEPS):
+            try:
+                real_batch, = next(real_iter)
+            except StopIteration:
+                real_iter = iter(loader)
+                real_batch, = next(real_iter)
+            real_batch = real_batch.to(H.DEVICE)
+            #fresh fake batch
+            fake_batch, _, _, _ = G.sample(torch.randn(H.BATCH, H.NOISE_DIM, device=H.DEVICE))
+            fake_batch = fake_batch.detach()
+            #R1 gradient penalty on real data --> not quite WGAN!!! Could try with wasserstein distance 
+            real_batch.requires_grad_(True)
+            real_logits = D(real_batch)
+            grad_real = torch.autograd.grad(real_logits.sum(), real_batch, create_graph=True)[0]
+            gp = H.GRADIENT_PENALTY * 0.5 * grad_real.pow(2).view(real_batch.size(0), -1).sum(1).mean()
+            loss_D = F.binary_cross_entropy_with_logits(real_logits, torch.ones_like(real_batch[:, :1])) + F.binary_cross_entropy_with_logits(D(fake_batch), torch.zeros_like(fake_batch[:, :1])) + gp
+            opt_D.zero_grad()
+            loss_D.backward()
+            opt_D.step()
+        if it % 50 == 0:
+            print(f"{it} complete")
+            with open(f"{H.OUT_DIR}/losses/output.txt", "a") as f:
+                f.write(f"iteration {it} | D LOSS = {loss_D.item():.4f} | G LOSS = {loss_G.item():.4f} | AVG R ={rewards.mean():.4f} | mean_pen: {(mean_pen.item()*H.MEAN_PENALTY_SCALE):.4f} |  \n")
+    #generate and save  
+    z = torch.randn(H.NUM_SAMPLES, H.NOISE_DIM, device=H.DEVICE)
+    synthetic, _, _, _ = G.sample(z)
+    cols = H.NUM_COLS + H.CAT_COLS
+    if H.DEVICE == "cuda": 
+        df_syn = pd.DataFrame(synthetic.cpu().detach().numpy(), columns=cols)
+    else: 
+        df_syn = pd.DataFrame(synthetic.detach().numpy(), columns=cols)
+    df_syn.to_csv(f"{H.OUT_DIR}/synthetic.csv")
+    #rescale 
+    feature_range = np.load(H.NPY_PATH, allow_pickle=True).item()
+    for col in H.NUM_COLS:
+        xmin, xmax = feature_range[col]
+        df_syn[col] = (1.0 - df_syn[col]) * xmin + df_syn[col] * xmax
+    df_syn.to_csv(f"{H.OUT_DIR}/synthetic_rescaled.csv")
+    elapsed_time = (time.time() - start_time) / 60 # minutes 
+    return df_syn, elapsed_time
+
 def evaluate_model_aireadi(df_real, df_hold, df_train, df_syn, df_hold_norm, df_train_norm, df_syn_norm, df_real_with_patients_norm, H, elapsed_time): 
     #plot losses
     plot_rl_losses(f"{H.OUT_DIR}")
@@ -389,6 +477,7 @@ def main():
     loader = DataLoader(TensorDataset(real), batch_size=H.BATCH, shuffle=True, num_workers=0) 
     #df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
     df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
+    df_syn, elapsed_time = no_value(df_train, real, loader, H)
 
     if H.DATASET == "AIREADI": 
         #get raw to use for cwc, value stat analysis, histograms etc. 
