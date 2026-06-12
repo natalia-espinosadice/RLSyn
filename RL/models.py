@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch.distributions import Normal, Bernoulli, Independent, TransformedDistribution
 from torch.distributions.transforms import TanhTransform
-
+from torch.distributions import RelaxedBernoulli
 
 def build_models(H): 
     class Policy(nn.Module):
@@ -62,6 +62,26 @@ def build_models(H):
             cat = row[:, len(H.NUM_COLS):]              
             cat_log = Independent(Bernoulli(logits=logits), 1).log_prob(cat)
             return num_log + cat_log, self.v(h).squeeze()
+
+        def sample_reparam(self, z):
+            h = self.core(z)
+            sigma = self.log_sigma.exp()
+            num_dist = Normal(self.mu(h), sigma)
+            if H.USE_TANH:
+                tanh_dist = TransformedDistribution(num_dist, [TanhTransform(cache_size=1)])
+                num_unit = tanh_dist.rsample()
+                num = 0.5 * (num_unit + 1)
+                num = num.clamp(H.EPS, 1.0 - H.EPS)
+            else:
+                num = num_dist.rsample()
+
+            logits = self.cat_logits(h)
+            cat_soft = RelaxedBernoulli(temperature=1.0, logits=logits).rsample()
+            cat_hard = (cat_soft > 0.5).float()
+            cat = cat_hard + (cat_soft - cat_soft.detach())  # straight-through
+
+            row = torch.cat([num, cat], 1)
+            return row
 
     #discriminator
     class Disc(nn.Module):

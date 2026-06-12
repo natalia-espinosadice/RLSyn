@@ -12,5 +12,5 @@
 #SBATCH --error=slurm-%A.err
 
 for SEED in 0 1 2 3 4; do
-    python -m RL.train --OUT_DIR ablation/reparam_gan/seed${SEED} --RESULT_CSV ablation.csv --RUN_NAME reparam_gan_${SEED} --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed${SEED} --SEED ${SEED}
+    python -m RL.train --OUT_DIR ablation/reparam_gan_cat/seed${SEED} --RESULT_CSV ablation.csv --RUN_NAME reparam_gan_cat_${SEED} --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed${SEED} --SEED ${SEED}
 done
