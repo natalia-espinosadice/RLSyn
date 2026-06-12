@@ -41,10 +41,10 @@ class HyperParams_AIREADI:
     LABEL: str = "Type 2 Diabetes"
     #-----MODEL PARAMETERS-----#
     DEVICE: str = 'cpu'
-    BATCH: int = 384 
+    BATCH: int = 768  #384
     NOISE_DIM: int = 112  
     GRADIENT_PENALTY: int = 5
-    G_LR: float = 2e-4
+    G_LR: float = 5e-5 #2e-4
     G_H: int = 128 
     D_LR: float = 5e-5
     D_H: int = 128
