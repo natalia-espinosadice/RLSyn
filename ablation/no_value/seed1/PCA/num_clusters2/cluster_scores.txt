@@ -1,0 +1,25 @@
+set 0: score=-10.6664 (PCs=26)
+
+Top 10 features for PC1:
+High blood pressure                 0.4263
+Type 2 Diabetes                     0.4065
+High blood cholesterol              0.3097
+Cataracts (1+ eyes)                 0.3086
+Arthritis                           0.2877
+Obesity                             0.2768
+cube_visuospatial_executive_value   0.2447
+Dry eye (1+)                        0.1411
+Urinary problems                    0.1405
+Kidney problems                     0.1220
+
+Top 10 features for PC2:
+ABNORMAL              0.6153
+NORMAL                0.5483
+Dry eye (1+)          0.2696
+Arthritis             0.2427
+Digestive problems    0.2069
+High blood pressure   0.1633
+Urinary problems      0.1517
+Osteoporosis          0.1263
+Obesity               0.1254
+Cataracts (1+ eyes)   0.1044

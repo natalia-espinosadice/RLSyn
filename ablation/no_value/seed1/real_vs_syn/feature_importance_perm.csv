@@ -1,0 +1,109 @@
+feature,avg_drop_acc
+BORDERLINE,0.05155334845903151
+ABNORMAL,0.018669035751926383
+High blood pressure,0.018161298258722317
+Obesity,0.01639884461534255
+Type 2 Diabetes,0.01624475688021844
+act_generic_hrs,0.01474564832447962
+cube_visuospatial_executive_value,0.014282801959658715
+Arthritis,0.014151226609079645
+INSULIN (ng/mL)_value (ng/mL),0.011264077074240448
+repetition_value,0.010226915845839355
+High blood cholesterol,0.00985295270030159
+Dry eye (1+),0.009852685418887676
+"Protein, Total (g/dL)_value (g/dL)",0.009125631376408157
+act_walking_hrs,0.008905355043873627
+OTHERWISE NORMAL,0.008904869077666504
+Digestive problems,0.008573962538080009
+Sodium (mEq/L)_value (mEq/L),0.007714980819521248
+"Globulin, Total (g/dL)_value (g/dL)",0.007494522249659058
+NORMAL,0.007428297204783112
+moca_abstraction_value,0.007009394334241481
+Cancer,0.006943047797813744
+Chronic pullmonary problems,0.00670014973833756
+Urinary problems,0.0066349087750310525
+Other heart issues (pacemaker),0.006436209342092871
+Cataracts (1+ eyes),0.0061722810950033445
+"Carbon Dioxide, Total (mEq/L)_value (mEq/L)",0.005642893807271867
+Other neurological conditions,0.005620211334554322
+Marijuana user,0.005598683031578684
+CRP - HS (mg/L)_value (mg/L),0.005135472192102424
+fluency_language_value,0.004959698214985364
+subtraction_value,0.004937781139044044
+Osteoporosis,0.004716921647060968
+HDL Cholesterol (mg/dL)_value (mg/dL),0.004628961763571358
+Age-related macular degeneration,0.004430529612047103
+act_sedentary_hrs,0.004343007098143903
+trails_visuospatial_executive_value,0.004254002387308975
+ALT (IU/L)_value (IU/L),0.004188639932450689
+Kidney problems,0.0041660182055090235
+Hearing impairment,0.004078046172864255
+Glucose (mg/dL)_value (mg/dL),0.004078021874553879
+moca_abstraction_time_value,0.003967804738777976
+Glaucoma (1+),0.0037910831275570133
+moca_total_score_value,0.0036590704073915514
+Heart attack,0.003416269541156778
+Bilirubin Total (mg/dL)_value (mg/dL),0.0033948991771984667
+BUN/Creatinine ratio_value,0.0033507977439018698
+LDL Cholesterol Calculation (mg/dL)_value (mg/dL),0.0033283461051327027
+blood_glucose_mean,0.0031299261027636096
+Rate,0.003020170634884467
+memory_trial2_time_value,0.002976166394829316
+clock_visuospatial_executive_time_value,0.00297591126257057
+Low blood pressure,0.002953666159439439
+resting_heart_rate,0.002909674068539445
+moca_combined_mis_score_value,0.0028217263342050192
+Urine Creatinine (mg/dL)_value (mg/DL),0.0027777099449946886
+delayed_recall_with_no_clue_time_value,0.002733256186197939
+cube_visuospatial_executive_time_value,0.0027332197387324175
+Circulation problems,0.0026447252924149687
+moca_orientation_time_value,0.0026013285101187298
+Creatinine (mg/dL)_value (md/dL),0.0026011341236358773
+Chloride (mEq/L)_value (mEq/L),0.002402981402680706
+AST (IU/L)_value (IU/L),0.002358709881211625
+total_kcal,0.0023147299394668244
+Potassium (mEq/L)_value (mEq/L),0.0022489544133324824
+total_steps,0.002204670742708226
+moca_orientation_value,0.0019617969815423787
+C-Peptide (ng/mL)_value (ng/mL),0.0019177076974009831
+Mild cognitive impairmen,0.0019175376092284944
+A/G Ratio_value,0.0018738370980527952
+blood_glucose_std,0.0018517134864734163
+lettera_time_value,0.0018513976084387983
+sleep_light_hrs,0.0016313764081630079
+memory_trial2_value,0.001631218469145703
+Diabetic retinopathy (1+),0.0015868497544351888
+stress_mean,0.0015431249449491301
+heart_rate_mean,0.0014108449433697468
+T,0.0013668528524697664
+Stroke,0.0012785041960144516
+sleep_deep_hrs,0.0012349008780801808
+QT,0.001234755088218038
+digitspan_time_value,0.0012124492393110044
+naming_value,0.0009699035053349814
+BUN (mg/dL)_value (mg/dL),0.0009698427595590964
+QRS,0.0007941538265282721
+Calcium (mg/dL)_value (mg/dL),0.0007715685470521594
+Total Cholesterol (mg/dL)_value (mg/dL),0.0007053435021762233
+act_running_hrs,0.0007052706072451454
+repetition_time_value,0.0006840095856834206
+lettera_value,0.0006613635604313962
+Alkaline Phosphatase (IU/L)_value (IU/L),0.0006396044235073761
+Multiple sclerosis,0.0005068992014967621
+naming_time_value,0.00030866143645535087
+Urine Albumin (mg/dL)_value (mg/DL),0.0003085520940587605
+Albumin (g/dL)_value (g/dL),0.00024258218144155306
+sleep_rem_hrs,0.0001324379405966969
+Retinal vascular occlusion,6.610355332416161e-05
+Parkinson's disease,2.2026418337928177e-05
+resp_rate_mean,9.719324142846725e-08
+subtraction_time_value,-4.39677925896343e-05
+QRSD,-0.00015419707752073025
+trails_visuospatial_executive_time_value,-0.00019834710743803276
+QTc,-0.00019842000236909742
+memory_trial1_value,-0.0002643534675207571
+memory_trial1_time_value,-0.0003307121531036606
+sleep_awake_hrs,-0.00037459490160703714
+Triglycerides (mg/dL)_value (mg/dL),-0.0005286583384207998
+PR,-0.0006388511758863659
+P,-0.0015208798418180037

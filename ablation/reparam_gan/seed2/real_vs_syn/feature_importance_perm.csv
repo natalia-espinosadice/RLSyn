@@ -1,0 +1,109 @@
+feature,avg_drop_acc
+Multiple sclerosis,0.0029315668461704415
+Retinal vascular occlusion,0.0019837869524148032
+Diabetic retinopathy (1+),0.001432762019311098
+Heart attack,0.0012786378367214547
+Parkinson's disease,0.0011461998961247398
+lettera_value,0.000925729177107355
+BORDERLINE,0.0008816763404314809
+Chronic pullmonary problems,0.0007494570846279913
+Kidney problems,0.0007273213238934639
+Stroke,0.0006613878587417865
+NORMAL,0.000595102068089961
+Age-related macular degeneration,0.0005289863656106286
+Mild cognitive impairmen,0.0005069599472727049
+Low blood pressure,0.0004848970814692199
+Circulation problems,0.00046287066313128734
+Glaucoma (1+),0.0004628342156657528
+Hearing impairment,0.0004188178264554132
+Osteoporosis,0.0003966820657208681
+Cancer,0.00035260493073463906
+Marijuana user,0.0003085763923691376
+ABNORMAL,0.0002644506607621855
+Urinary problems,0.00024243639157944585
+OTHERWISE NORMAL,0.00022042212239667958
+Arthritis,0.00019832280912768672
+High blood pressure,0.00017633283825527977
+Cataracts (1+ eyes),0.00017629639078972748
+Other heart issues (pacemaker),0.00015426997245180372
+trails_visuospatial_executive_value,0.00013219495749317912
+Type 2 Diabetes,0.00011025358324145973
+moca_total_score_value,0.00011019283746557918
+Other neurological conditions,8.815426997247134e-05
+C-Peptide (ng/mL)_value (ng/mL),6.611570247934573e-05
+Obesity,4.410143329658389e-05
+LDL Cholesterol Calculation (mg/dL)_value (mg/dL),4.4077134986237884e-05
+subtraction_time_value,4.407713498622456e-05
+High blood cholesterol,4.405283667588744e-05
+Creatinine (mg/dL)_value (md/dL),2.2050716648291946e-05
+INSULIN (ng/mL)_value (ng/mL),2.2038567493116723e-05
+Albumin (g/dL)_value (g/dL),2.2038567493116723e-05
+BUN (mg/dL)_value (mg/dL),2.2038567493116723e-05
+cube_visuospatial_executive_value,2.2038567493116723e-05
+memory_trial1_value,2.203856749311228e-05
+memory_trial2_value,2.203856749311228e-05
+moca_combined_mis_score_value,8.885036803518709e-18
+Alkaline Phosphatase (IU/L)_value (IU/L),4.4425184017593546e-18
+total_kcal,0.0
+subtraction_value,0.0
+HDL Cholesterol (mg/dL)_value (mg/dL),0.0
+Glucose (mg/dL)_value (mg/dL),0.0
+"Globulin, Total (g/dL)_value (g/dL)",0.0
+naming_value,0.0
+"Carbon Dioxide, Total (mEq/L)_value (mEq/L)",0.0
+Chloride (mEq/L)_value (mEq/L),0.0
+ALT (IU/L)_value (IU/L),0.0
+BUN/Creatinine ratio_value,0.0
+A/G Ratio_value,0.0
+AST (IU/L)_value (IU/L),0.0
+Calcium (mg/dL)_value (mg/dL),0.0
+CRP - HS (mg/L)_value (mg/L),0.0
+Sodium (mEq/L)_value (mEq/L),0.0
+cube_visuospatial_executive_time_value,0.0
+act_walking_hrs,0.0
+act_sedentary_hrs,0.0
+act_generic_hrs,0.0
+act_running_hrs,0.0
+clock_visuospatial_executive_time_value,0.0
+Urine Albumin (mg/dL)_value (mg/DL),0.0
+moca_abstraction_value,0.0
+memory_trial1_time_value,0.0
+QRS,0.0
+QRSD,0.0
+QT,0.0
+T,0.0
+Potassium (mEq/L)_value (mEq/L),0.0
+"Protein, Total (g/dL)_value (g/dL)",0.0
+PR,0.0
+trails_visuospatial_executive_time_value,0.0
+moca_orientation_time_value,0.0
+memory_trial2_time_value,0.0
+repetition_time_value,0.0
+sleep_rem_hrs,0.0
+stress_mean,0.0
+resp_rate_mean,0.0
+resting_heart_rate,0.0
+total_steps,0.0
+naming_time_value,0.0
+digitspan_time_value,0.0
+moca_abstraction_time_value,0.0
+moca_orientation_value,0.0
+heart_rate_mean,0.0
+Bilirubin Total (mg/dL)_value (mg/dL),-2.203856749311228e-05
+P,-2.203856749311228e-05
+Total Cholesterol (mg/dL)_value (mg/dL),-2.203856749311228e-05
+Triglycerides (mg/dL)_value (mg/dL),-2.203856749311228e-05
+Rate,-2.203856749311228e-05
+Urine Creatinine (mg/dL)_value (mg/DL),-2.203856749311228e-05
+QTc,-2.203856749311228e-05
+sleep_awake_hrs,-4.407713498622456e-05
+Digestive problems,-4.410143329657057e-05
+sleep_light_hrs,-6.611570247933684e-05
+blood_glucose_mean,-6.611570247933684e-05
+lettera_time_value,-6.611570247933684e-05
+sleep_deep_hrs,-8.815426997244912e-05
+delayed_recall_with_no_clue_time_value,-8.815426997244912e-05
+repetition_value,-8.817856828280846e-05
+blood_glucose_std,-0.00011019283746556141
+Dry eye (1+),-0.0001102292849311004
+fluency_language_value,-0.00011024143408628005

@@ -1,0 +1,25 @@
+set 0: score=-2.1120 (PCs=30)
+
+Top 10 features for PC1:
+Retinal vascular occlusion         0.2449
+lettera_value                      0.2324
+Parkinson's disease                0.2209
+Mild cognitive impairmen           0.2180
+Other heart issues (pacemaker)     0.2085
+Multiple sclerosis                 0.2074
+Age-related macular degeneration   0.2073
+Heart attack                       0.2031
+Stroke                             0.1986
+Kidney problems                    0.1975
+
+Top 10 features for PC2:
+High blood pressure                 0.5073
+Type 2 Diabetes                     0.4254
+High blood cholesterol              0.4141
+Obesity                             0.2802
+Arthritis                           0.2563
+Cataracts (1+ eyes)                 0.2263
+cube_visuospatial_executive_value   0.1945
+ABNORMAL                            0.1709
+NORMAL                              0.1395
+OTHERWISE NORMAL                    0.1194
