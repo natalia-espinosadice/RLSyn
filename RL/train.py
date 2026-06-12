@@ -265,7 +265,7 @@ def train(df_train, real, loader, H):
         num_fake = rows[:, :len(H.NUM_COLS)]
         mean_pen = (num_fake.mean(0) - target_mean[0, :len(H.NUM_COLS)]).pow(2).mean()
         #PPO update 
-        for _ in range(H.PPO_EPOCHS):
+        for _ in range(1):  #H.PPO_EPOCHS):
             logp, v = G.eval_action(z, rows)
             ratio = (logp - logp_old).exp()
             surr1 = ratio * adv_n
@@ -547,7 +547,8 @@ def main():
     loader = DataLoader(TensorDataset(real), batch_size=H.BATCH, shuffle=True, num_workers=0) 
     #df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
     #df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
-    df_syn, elapsed_time = reparam_GAN_cat(df_train, real, loader, H)
+    #df_syn, elapsed_time = reparam_GAN_cat(df_train, real, loader, H)
+    df_syn, elapsed_time = train(df_train, real, loader, H)
 
     if H.DATASET == "AIREADI": 
         #get raw to use for cwc, value stat analysis, histograms etc. 
