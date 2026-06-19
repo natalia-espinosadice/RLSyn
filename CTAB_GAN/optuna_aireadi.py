@@ -91,14 +91,14 @@ def objective(trial: optuna.Trial, study_name: str):
     try:
         synthesizer = CTABGAN(
             raw_csv_path=str(raw_csv),
-            test_ratio=0.0,                  # already using the train split
+            test_ratio=0.01,                  # already using the train split
             categorical_columns=CAT_COLS,
             log_columns=[],
             mixed_columns={},
             general_columns=[],
             non_categorical_columns=[],
             integer_columns=[],
-            problem_type={}
+            problem_type={"Classification": "Type 2 Diabetes"}
         )
         synthesizer.synthesizer.epochs      = epochs
         synthesizer.synthesizer.batch_size  = batch_size
