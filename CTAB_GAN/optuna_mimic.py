@@ -70,7 +70,7 @@ def evaluate_model(df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, OUT_D
 def objective(trial: optuna.Trial, study_name: str):
     epochs       = trial.suggest_int("epochs",       100, 200, step=50)
     batch_size   = trial.suggest_categorical("batch_size",   [200, 500, 1000])
-    num_channels = trial.suggest_categorical("num_channels", [32, 64, 128])
+    num_channels = trial.suggest_categorical("num_channels", [32, 64])
     random_dim   = trial.suggest_categorical("random_dim",   [100, 128, 200 ])
     base_dir  = REPO_ROOT / study_name
     trial_dir = base_dir / f"trial_{trial.number}"
