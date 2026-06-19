@@ -1,0 +1,5 @@
+s2h_auc: 0.49062049062049057
+s2h_acc: 0.6118490205446727
+r2s_auc: 0.4972637618911426
+r2s_acc: 0.48027875776993784
+epochs: 150, batch_size: 1000, num_channels: 32, random_dim: 128, elapsed: 5.10min
