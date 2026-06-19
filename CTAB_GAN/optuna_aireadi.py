@@ -7,7 +7,7 @@ import pandas as pd
 import argparse
 from pathlib import Path
 from optuna.visualization import (plot_optimization_history, plot_param_importances, plot_pareto_front,)
-from model.ctabgan import CTABGAN
+from CTAB_GAN.model.ctabgan import CTABGAN
 from evaluation.evaluate_aireadi import train_on_synth_test_on_hold, train_on_real_test_on_synth
 
 NUM_COLS = [
