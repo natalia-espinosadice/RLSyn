@@ -1,0 +1,16 @@
+--------5-FOLD: TRAIN ON REAL / TEST ON SYNTHETIC (NON-OVERLAPPING)--------
+Synthetic target distribution:
+Type 2 Diabetes
+1    2239
+0    1842
+Name: count, dtype: int64
+
+Fold 1  AUC=0.6137  Acc=0.583  Prec=0.582  Rec=0.846  F1=0.690
+Fold 2  AUC=0.6235  Acc=0.588  Prec=0.584  Rec=0.866  F1=0.697
+Fold 3  AUC=0.5704  Acc=0.591  Prec=0.593  Rec=0.815  F1=0.686
+Fold 4  AUC=0.6481  Acc=0.623  Prec=0.613  Rec=0.850  F1=0.712
+Fold 5  AUC=0.6086  Acc=0.577  Prec=0.580  Rec=0.830  F1=0.683
+
+Cross-validation summary
+Mean AUC : 0.6129 ± 0.0252
+Mean Acc : 0.592 ± 0.016

@@ -1,0 +1,25 @@
+set 0: score=-6.8596 (PCs=31)
+
+Top 10 features for PC1:
+Type 2 Diabetes          0.4218
+Arthritis                0.3469
+High blood cholesterol   0.3365
+Obesity                  0.2935
+Cataracts (1+ eyes)      0.2888
+ABNORMAL                 0.2766
+High blood pressure      0.2422
+Dry eye (1+)             0.1911
+NORMAL                   0.1398
+repetition_value         0.1338
+
+Top 10 features for PC2:
+ABNORMAL              0.6110
+High blood pressure   0.4068
+NORMAL                0.3088
+Arthritis             0.2243
+OTHERWISE NORMAL      0.2185
+Cataracts (1+ eyes)   0.2105
+Obesity               0.2004
+Dry eye (1+)          0.1971
+Kidney problems       0.1257
+Hearing impairment    0.1142
