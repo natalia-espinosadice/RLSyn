@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=gan
+#SBATCH --job-name=ai
 #SBATCH --partition=gpu
 #SBATCH --qos=gpu-medium
 #SBATCH --nodes=1
