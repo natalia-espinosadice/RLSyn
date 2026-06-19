@@ -1,0 +1,15 @@
+-------------------------STANDARDIZED UNBALANCED REAL DATA--------------------- 
+ 
+Target distribution: Type 2 Diabetes
+0.0    2827
+1.0    1710
+Name: count, dtype: int64
+Fold 1  AUC=0.8789  Acc=0.787  Prec=0.737  Rec=0.768  F1=0.752
+Fold 2  AUC=0.8585  Acc=0.801  Prec=0.792  Rec=0.676  F1=0.730
+Fold 3  AUC=0.9054  Acc=0.829  Prec=0.780  Rec=0.822  F1=0.801
+Fold 4  AUC=0.7922  Acc=0.757  Prec=0.628  Rec=0.721  F1=0.671
+Fold 5  AUC=0.8786  Acc=0.815  Prec=0.697  Rec=0.707  F1=0.702
+
+Cross-validation summary
+Mean AUC : 0.8627 ± 0.0383
+Mean Acc : 0.798 ± 0.025

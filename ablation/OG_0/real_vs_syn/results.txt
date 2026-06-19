@@ -1,0 +1,14 @@
+CLASSIFY REAL VS SYN
+Synthetic target distribution:
+is_syn
+0    4537
+1    4537
+Name: count, dtype: int64
+
+Fold 1: AUC=0.9797  Acc=0.921
+Fold 2: AUC=0.9755  Acc=0.924
+Fold 3: AUC=0.9767  Acc=0.923
+Fold 4: AUC=0.9743  Acc=0.916
+Fold 5: AUC=0.9814  Acc=0.920
+Mean AUC : 0.9775 ± 0.0026
+Mean Acc : 0.921 ± 0.003
