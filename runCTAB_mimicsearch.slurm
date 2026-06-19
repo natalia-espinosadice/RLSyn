@@ -12,4 +12,4 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m CTAB_GAN.optuna_mimic --STUDY_NAME CTAB_mimic_optuna
+python -m CTAB_GAN.optuna_mimic --STUDY_NAME CTAB_mimic_optuna2
