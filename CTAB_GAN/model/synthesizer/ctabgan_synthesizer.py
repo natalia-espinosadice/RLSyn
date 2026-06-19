@@ -251,7 +251,7 @@ class Generator(Module):
         return self.seq(input_)
 
 def determine_layers_disc(side, num_channels):
-    assert side >= 4 and side <= 64
+    assert side >= 4 and side <= 128
 
     layer_dims = [(1, side), (num_channels, side // 2)]
 
@@ -280,7 +280,7 @@ def determine_layers_disc(side, num_channels):
     return layers_D
 
 def determine_layers_gen(side, random_dim, num_channels):
-    assert side >= 4 and side <= 64
+    assert side >= 4 and side <= 128
 
     layer_dims = [(1, side), (num_channels, side // 2)]
 
@@ -359,6 +359,7 @@ class CTABGANSynthesizer:
         self.target_delta = 1e-5
 
         self.random_dim = random_dim
+        self.sides = [4, 8, 16, 24, 32, 64]
         self.class_dim = class_dim
         self.num_channels = num_channels
         self.dside = None
@@ -384,14 +385,14 @@ class CTABGANSynthesizer:
         data_dim = self.transformer.output_dim
         self.cond_generator = Cond(train_data, self.transformer.output_info)
         		
-        sides = [4, 8, 16, 24, 32, 64]
+        sides = self.sides
         col_size_d = data_dim + self.cond_generator.n_opt
         for i in sides:
             if i * i >= col_size_d:
                 self.dside = i
                 break
         
-        sides = [4, 8, 16, 24, 32, 64]
+        sides = self.sides 
         col_size_g = data_dim
         for i in sides:
             if i * i >= col_size_g:
