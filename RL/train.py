@@ -106,9 +106,9 @@ def reparam_GAN(df_train, real, loader, H):
         f.write(f"Logging\n")
     real_iter = iter(loader)
     for it in range(H.ITERS):
-        #--- Generator update (reparam: gradients flow D -> rows -> G) ---
+        #gen - gradient flows 
         z = torch.randn(H.BATCH, H.NOISE_DIM, device=H.DEVICE)
-        rows, _, _, _ = G.sample(z)  # NOT detached
+        rows, _, _, _ = G.sample(z)  #NOT DEATHCED 
         fake_logits = D(rows)
         loss_G = F.binary_cross_entropy_with_logits(fake_logits, torch.ones_like(fake_logits))
         #mean penalty 
@@ -121,7 +121,7 @@ def reparam_GAN(df_train, real, loader, H):
         opt_G.step()
         with open(f"{H.OUT_DIR}/losses/G_loss.txt", "a") as f:
             f.write(f"ITERATION {it:.4f} | MEAN PEN (*.2) {(H.MEAN_PENALTY_SCALE * mean_pen):.4f} | TOTAL G LOSS {loss_G:.4f}\n")
-        #--- Discriminator update (same as other functions) ---
+        #disc same 
         for d_it in range(H.DISC_STEPS):
             try:
                 real_batch, = next(real_iter)
@@ -165,7 +165,6 @@ def reparam_GAN(df_train, real, loader, H):
 
 def reparam_GAN_cat(df_train, real, loader, H): 
     start_time = time.time() 
-    #instantiate
     G, D = build_models(H)
     opt_G = torch.optim.Adam(G.parameters(), lr=H.G_LR)
     opt_D = torch.optim.Adam(D.parameters(), lr=H.D_LR)
@@ -176,9 +175,9 @@ def reparam_GAN_cat(df_train, real, loader, H):
         f.write(f"Logging\n")
     real_iter = iter(loader)
     for it in range(H.ITERS):
-        #--- Generator update (reparam: gradients flow D -> rows -> G) ---
+        #gen 
         z = torch.randn(H.BATCH, H.NOISE_DIM, device=H.DEVICE)
-        rows = G.sample_reparam(z)  # was: rows, _, _, _ = G.sample(z)  # NOT detached
+        rows = G.sample_reparam(z) #NOT DETACHED NOW 
         fake_logits = D(rows)
         loss_G = F.binary_cross_entropy_with_logits(fake_logits, torch.ones_like(fake_logits))
         #mean penalty 
@@ -191,7 +190,7 @@ def reparam_GAN_cat(df_train, real, loader, H):
         opt_G.step()
         with open(f"{H.OUT_DIR}/losses/G_loss.txt", "a") as f:
             f.write(f"ITERATION {it:.4f} | MEAN PEN (*.2) {(H.MEAN_PENALTY_SCALE * mean_pen):.4f} | TOTAL G LOSS {loss_G:.4f}\n")
-        #--- Discriminator update (same as other functions) ---
+        #dsisc is same 
         for d_it in range(H.DISC_STEPS):
             try:
                 real_batch, = next(real_iter)
