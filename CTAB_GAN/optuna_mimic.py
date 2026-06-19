@@ -78,8 +78,8 @@ def objective(trial: optuna.Trial, study_name: str):
     save_syn  = trial_dir / "synthetic.csv"
     results_csv = base_dir / "results.csv"
     seed = 2023
-    train_csv = DATA_ROOT / "normalized_training_data.csv"
-    test_csv  = DATA_ROOT / "normalized_testing_data.csv"
+    train_csv = DATA_ROOT / "normalized_training_data_0.csv"
+    test_csv  = DATA_ROOT / "normalized_testing_data_0.csv"
     raw_csv = train_csv  # CTAB-GAN reads from a csv path directly
     # --- train ---
     start_time = time.time()
