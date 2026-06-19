@@ -13,6 +13,6 @@
 
 
 for SEED in 0 1 2 3 4 5 6 7 8 9 ; do
-    python -m CTAB_GAN.main_aireadi --SEED ${SEED}
+    python -m CTAB_GAN.main_aireadi --seed ${SEED}
 done
 
