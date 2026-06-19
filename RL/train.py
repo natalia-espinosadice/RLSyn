@@ -528,13 +528,6 @@ def main():
             DEVICE = "cuda" if torch.cuda.is_available() else "cpu", 
             NPY_PATH = f"/scratch/network/ne3496/seeds/min_max_log.npy",
         )
-    if "gan" in H.OUT_DIR: 
-        H = H.override( 
-            G_LR = 2e-4, 
-            BATCH = 384, 
-        )
-        print("worked?")
-        print(H.G_LR)
     #train
     set_seed(H.SEED)
     os.makedirs(H.OUT_DIR, exist_ok=True)
@@ -546,8 +539,8 @@ def main():
     loader = DataLoader(TensorDataset(real), batch_size=H.BATCH, shuffle=True, num_workers=0) 
     #df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
     #df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
-    #df_syn, elapsed_time = reparam_GAN_cat(df_train, real, loader, H)
-    df_syn, elapsed_time = train(df_train, real, loader, H)
+    df_syn, elapsed_time = reparam_GAN_cat(df_train, real, loader, H)
+    #df_syn, elapsed_time = train(df_train, real, loader, H)
 
     if H.DATASET == "AIREADI": 
         #get raw to use for cwc, value stat analysis, histograms etc. 
