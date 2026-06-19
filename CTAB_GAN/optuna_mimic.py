@@ -26,7 +26,7 @@ CAT_COLS = ['WHITE', 'BLACK', 'ASIAN', 'HISPANIC', 'UN', 'OTHER', 'DIE_1y', 'GEN
 NUM_COLS = ['AGE', 'BMI', 'DIASTOLIC', 'SYSTOLIC']
 
 REPO_ROOT = Path(__file__).resolve().parent
-DATA_ROOT = REPO_ROOT.parent / "MIMIC" / "preprocessed_data0.9_seed0"
+DATA_ROOT = REPO_ROOT.parent / "MIMIC_DATA" / "seed0" 
 
 
 
