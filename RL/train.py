@@ -49,8 +49,8 @@ def REINFORCE(df_train, real, loader, H):
         opt_G.zero_grad()
         loss_G.backward()
         opt_G.step()
-        with open(f"{H.OUT_DIR}/losses/G_loss.txt", "a") as f:
-            f.write(f"ITERATION {it:.4f} | TOTAL G LOSS {loss_G:.4f}\n")
+        #with open(f"{H.OUT_DIR}/losses/G_loss.txt", "a") as f:
+        #    f.write(f"ITERATION {it:.4f} | TOTAL G LOSS {loss_G:.4f}\n")
         #discriminator update 
         for d_it in range(H.DISC_STEPS):
             try:
@@ -71,7 +71,7 @@ def REINFORCE(df_train, real, loader, H):
             opt_D.zero_grad()
             loss_D.backward()
             opt_D.step()
-        if it % 50 == 0:
+        if it % 5000 == 0:
             print(f"{it} complete")
             with open(f"{H.OUT_DIR}/losses/output.txt", "a") as f:
                 f.write(f"iteration {it} | D LOSS = {loss_D.item():.4f} | G LOSS = {loss_G.item():.4f} | AVG R ={rewards.mean():.4f} |  \n")
