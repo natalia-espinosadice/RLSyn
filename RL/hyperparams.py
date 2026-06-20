@@ -16,6 +16,7 @@ class HyperParams_AIREADI:
     RUN_NAME: Optional[str] = None   
     #options: AI-READI-FULL, MIMIC
     DATASET:  Optional[str] = None   
+    ABLATION:  Optional[str] = None   
     #-----TRAINING-----# 
     SEED: int = 0 
     ITERS: int = 30000
@@ -82,6 +83,7 @@ class HyperParams_MIMIC:
     RUN_NAME: Optional[str] = None   
     #options: AI-READI-OG, AI-READI-FULL, MIMIC
     DATASET:  Optional[str] = None   
+    ABLATION:  Optional[str] = None   
     #-----TRAINING-----# 
     SEED: int = 0 
     ITERS: int = 30000

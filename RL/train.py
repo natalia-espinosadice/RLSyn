@@ -264,7 +264,7 @@ def train(df_train, real, loader, H):
         num_fake = rows[:, :len(H.NUM_COLS)]
         mean_pen = (num_fake.mean(0) - target_mean[0, :len(H.NUM_COLS)]).pow(2).mean()
         #PPO update 
-        for _ in range(1):  #H.PPO_EPOCHS):
+        for _ in range(H.PPO_EPOCHS):
             logp, v = G.eval_action(z, rows)
             ratio = (logp - logp_old).exp()
             surr1 = ratio * adv_n
@@ -508,6 +508,7 @@ def parse_args():
     p.add_argument("--DATASET", choices=["AIREADI", "MIMIC"], required=True)
     p.add_argument("--DATA_PATH", type=str, required=True)
     p.add_argument("--SEED", type=int, required=True)
+    p.add_argument("--ABLATION", type=str)
     #add more here if you want to override other hps. 
     return vars(p.parse_args())
 
@@ -526,7 +527,7 @@ def main():
         H = HyperParams_MIMIC().override(**args)   
         H = H.override( 
             DEVICE = "cuda" if torch.cuda.is_available() else "cpu", 
-            NPY_PATH = f"/scratch/network/ne3496/seeds/min_max_log.npy",
+            NPY_PATH = f"MIMIC_DATA/min_max_log.npy",
         )
     #train
     set_seed(H.SEED)
@@ -537,10 +538,18 @@ def main():
         df_train = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data.csv")[H.NUM_COLS + H.CAT_COLS]
     real = torch.tensor(df_train.values, dtype=torch.float32)
     loader = DataLoader(TensorDataset(real), batch_size=H.BATCH, shuffle=True, num_workers=0) 
-    #df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
-    #df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
-    df_syn, elapsed_time = reparam_GAN_cat(df_train, real, loader, H)
-    #df_syn, elapsed_time = train(df_train, real, loader, H)
+
+    #ablations
+    if H.ABLATION == "reinforce": 
+        df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
+    elif H.ABLATION == "reparam_gan": 
+        #df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
+        df_syn, elapsed_time = reparam_GAN_cat(df_train, real, loader, H)
+    elif H.ABLATION == "no_entropy": 
+        H = H.override(ENT_BETA = 0)
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    else: 
+        df_syn, elapsed_time = train(df_train, real, loader, H)
 
     if H.DATASET == "AIREADI": 
         #get raw to use for cwc, value stat analysis, histograms etc. 
