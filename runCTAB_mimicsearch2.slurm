@@ -2,7 +2,7 @@
 #SBATCH --job-name=mimic0             # Job name
 #SBATCH --nodes=1                       # We only need 1 node
 #SBATCH --ntasks=1
-#SBATCH --partition=mig                      # 1 task
+#SBATCH --partition=gpu                      # 1 task
 #SBATCH --cpus-per-task=1              # 8 CPU cores
 #SBATCH --gres=gpu:1                    # 1 GPU
 #SBATCH --mem=60G                       # 16 GB of system RAM
