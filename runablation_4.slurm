@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=seed0
+#SBATCH --job-name=seed4
 #SBATCH --partition=gpu
 #SBATCH --qos=gpu-medium
 #SBATCH --nodes=1
@@ -12,6 +12,6 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation_MIMIC/reinforce/seed0 --RESULT_CSV ablation.csv --RUN_NAME reinforce_0 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed0 --SEED 0 --ABLATION reinforce
-python -m RL.train --OUT_DIR ablation_MIMIC/reparam_gan/seed0 --RESULT_CSV ablation.csv --RUN_NAME reparam_gan_0 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed0 --SEED 0 --ABLATION reparam_gan
-python -m RL.train --OUT_DIR ablation_MIMIC/no_entropy/seed0 --RESULT_CSV ablation.csv --RUN_NAME no_entropy_0 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed0 --SEED 0 --ABLATION no_entropy
+python -m RL.train --OUT_DIR ablation_MIMIC/reinforce/seed4 --RESULT_CSV ablation.csv --RUN_NAME reinforce_4 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed4 --SEED 4 --ABLATION reinforce
+python -m RL.train --OUT_DIR ablation_MIMIC/reparam_gan/seed4 --RESULT_CSV ablation.csv --RUN_NAME reparam_gan_4 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed4 --SEED 4 --ABLATION reparam_gan
+python -m RL.train --OUT_DIR ablation_MIMIC/no_entropy/seed4 --RESULT_CSV ablation.csv --RUN_NAME no_entropy_4 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed4 --SEED 4 --ABLATION no_entropy
