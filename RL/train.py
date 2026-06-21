@@ -581,8 +581,8 @@ def main():
         df_train = df_train_norm 
         df_hold = df_hold_norm 
         df_real = pd.concat([df_train, df_hold])[H.NUM_COLS + H.CAT_COLS]
-        df_train_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data_{seed}.csv")[H.NUM_COLS + H.CAT_COLS]
-        df_hold_norm =  pd.read_csv(f"{H.DATA_PATH}/normalized_testing_data_{seed}.csv")[H.NUM_COLS + H.CAT_COLS]
+        df_train_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
+        df_hold_norm =  pd.read_csv(f"{H.DATA_PATH}/normalized_testing_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
         df_real_norm = pd.concat([df_train_norm, df_hold_norm])[H.NUM_COLS + H.CAT_COLS]
         evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, H, elapsed_time) 
 
