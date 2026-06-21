@@ -573,7 +573,7 @@ def main():
         df_train_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
         df_hold_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_testing_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
         df_real_norm = pd.concat([df_train_norm, df_hold_norm])[H.NUM_COLS + H.CAT_COLS]
-        feature_range = np.load(npy_path, allow_pickle=True).item()
+        feature_range = np.load(H.NPY_PATH, allow_pickle=True).item()
         for col in NUM_COLS:
             xmin, xmax = feature_range[col]
             df_train_norm[col] = (1.0 - df_train_norm[col]) * xmin + df_train_norm[col] * xmax
