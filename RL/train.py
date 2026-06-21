@@ -540,6 +540,7 @@ def main():
     loader = DataLoader(TensorDataset(real), batch_size=H.BATCH, shuffle=True, num_workers=0) 
 
     #ablations
+    '''
     if H.ABLATION == "reinforce": 
         df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
     elif H.ABLATION == "reparam_gan": 
@@ -550,7 +551,8 @@ def main():
         df_syn, elapsed_time = train(df_train, real, loader, H)
     else: 
         df_syn, elapsed_time = train(df_train, real, loader, H)
-
+    '''
+    elapsed_time = 0 
     if H.DATASET == "AIREADI": 
         #get raw to use for cwc, value stat analysis, histograms etc. 
         df_train = pd.read_csv(f"{H.DATA_PATH}/original_training_data.csv")[H.NUM_COLS+ H.CAT_COLS]
@@ -564,15 +566,24 @@ def main():
         df_train_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data.csv")[H.NUM_COLS+ H.CAT_COLS]
         evaluate_model_aireadi(df_real, df_hold, df_train, df_syn, df_hold_norm, df_train_norm, df_syn_norm, df_real_with_patients_norm, H, elapsed_time) 
     else: 
+        #get synth 
+        df_syn_norm = pd.read_csv(f"{H.OUT_DIR}/synthetic.csv")[H.NUM_COLS+H.CAT_COLS]
+        df_syn = pd.read_csv(f"{H.OUT_DIR}/synthetic_rescaled.csv")[H.NUM_COLS+H.CAT_COLS]
+        #get train hold full
         df_train_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
         df_hold_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_testing_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
         df_real_norm = pd.concat([df_train_norm, df_hold_norm])[H.NUM_COLS + H.CAT_COLS]
-        df_syn = pd.read_csv(f"{H.OUT_DIR}/synthetic.csv")[H.NUM_COLS+H.CAT_COLS]
-        feature_range = np.load(H.NPY_PATH, allow_pickle=True).item()
-        for col in H.NUM_COLS:
+        feature_range = np.load(npy_path, allow_pickle=True).item()
+        for col in NUM_COLS:
             xmin, xmax = feature_range[col]
-            df_syn[col] = (1.0 - df_syn[col]) * xmin + df_syn[col] * xmax
-        df_syn.to_csv(f"{H.OUT_DIR}/synthetic_rescaled.csv")
+            df_train_norm[col] = (1.0 - df_train_norm[col]) * xmin + df_train_norm[col] * xmax
+            df_hold_norm[col] = (1.0 - df_hold_norm[col]) * xmin + df_hold_norm[col] * xmax
+        df_train = df_train_norm 
+        df_hold = df_hold_norm 
+        df_real = pd.concat([df_train, df_hold])[NUM_COLS + CAT_COLS]
+        df_train_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data_{seed}.csv")[NUM_COLS + CAT_COLS]
+        df_hold_norm =  pd.read_csv(f"{H.DATA_PATH}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
+        df_real_norm = pd.concat([df_train_norm, df_hold_norm])[NUM_COLS + CAT_COLS]
         evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, H, elapsed_time) 
 
 if __name__ == '__main__':
