@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=mimic3             # Job name
+#SBATCH --job-name=mimic9             # Job name
 #SBATCH --nodes=1                       # We only need 1 node
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1              # 8 CPU cores
@@ -11,4 +11,4 @@
 
 
 
-python -m CTAB_GAN.main_mimic --seed 3
+python -m CTAB_GAN.main_mimic --seed 9
