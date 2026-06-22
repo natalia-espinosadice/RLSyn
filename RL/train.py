@@ -487,10 +487,10 @@ def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm,
     r2r_prauc = r2r_results["test"]["prauc"]
     r2r_acc  = r2r_results["test"]["acc"]
     #-----------------PRIVACY-----------------#
-    df_train_norm_bal = df_train_norm.sample(n=30000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
-    df_hold_norm_bal = df_hold_norm.sample(n=30000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
-    #df_train_norm_unbal = df_train_norm.sample(n=21000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
-    #df_hold_norm_unbal = df_hold_norm.sample(n=9000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
+    #df_train_norm_bal = df_train_norm.sample(n=30000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
+    #df_hold_norm_bal = df_hold_norm.sample(n=30000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
+    df_train_norm_unbal = df_train_norm.sample(n=21000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
+    df_hold_norm_unbal = df_hold_norm.sample(n=9000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
     mem_aucs = mem_risk_MIMIC(df_train_norm_bal, df_hold_norm_bal, df_syn_norm, H.CAT_COLS, H.NUM_COLS, f"{H.OUT_DIR}/mem_risk", H.SEED)
     #-----------------LOG RESULTS-----------------#
     with open(f"{H.OUT_DIR}/eval.txt", "a") as f:
@@ -584,6 +584,7 @@ def main():
         df_train_norm = pd.read_csv(f"{H.DATA_PATH}/normalized_training_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
         df_hold_norm =  pd.read_csv(f"{H.DATA_PATH}/normalized_testing_data_{H.SEED}.csv")[H.NUM_COLS + H.CAT_COLS]
         df_real_norm = pd.concat([df_train_norm, df_hold_norm])[H.NUM_COLS + H.CAT_COLS]
+        print(f"starting eval {H.ABLATION}")
         evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, H, elapsed_time) 
 
 if __name__ == '__main__':
