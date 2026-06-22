@@ -468,7 +468,7 @@ def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm,
     cwc = get_column_wise_correlationsM(df_real, df_syn, f"{H.OUT_DIR}/correlations", True) 
     ad2d, continuous_w_d = compute_dimension_wide_distribution(df_real, df_syn, f"{H.OUT_DIR}/dimension_wide_distributions")
     latent_cluster_analysis = latent_cluster_analysisM(df_real, df_syn, f"{H.OUT_DIR}/PCA")
-    run_PCA(df_real, [df_syn], f"{H.OUT_DIR}/PCA", H.SEED)
+    #run_PCA(df_real, [df_syn], f"{H.OUT_DIR}/PCA", H.SEED)
     mca_dist, mca_tvd_dist = medical_concept_abundance(df_real, df_syn, H.CAT_COLS, f"{H.OUT_DIR}/medical_abundance")
     combined_clinical_violations = clinical_knowledge_violation(df_train, df_syn, H.CAT_COLS, f"{H.OUT_DIR}/clinical_knowledge_violation")
     EXCLUDE_COLS = ['WHITE', 'BLACK', 'ASIAN', 'HISPANIC', 'UN', 'OTHER', 'DIE_1y']
@@ -482,10 +482,10 @@ def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm,
     s2h_auc = s2h_results["test"]["auroc"]
     s2h_prauc = s2h_results["test"]["prauc"]
     s2h_acc  = s2h_results["test"]["acc"]
-    r2r_results = train_and_test_classification(df_train_norm, df_hold_norm, f"{H.OUT_DIR}/real_to_real", H.SEED, cat_cols)
-    r2r_auc = r2r_results["test"]["auroc"]
-    r2r_prauc = r2r_results["test"]["prauc"]
-    r2r_acc  = r2r_results["test"]["acc"]
+    #r2r_results = train_and_test_classification(df_train_norm, df_hold_norm, f"{H.OUT_DIR}/real_to_real", H.SEED, cat_cols)
+    r2r_auc = 0 # r2r_results["test"]["auroc"]
+    r2r_prauc = 0 # r2r_results["test"]["prauc"]
+    r2r_acc  = 0 # r2r_results["test"]["acc"]
     #-----------------PRIVACY-----------------#
     #df_train_norm_bal = df_train_norm.sample(n=30000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
     #df_hold_norm_bal = df_hold_norm.sample(n=30000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
