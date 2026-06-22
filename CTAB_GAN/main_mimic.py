@@ -48,7 +48,7 @@ def log_result(RESULTS_CSV, tag, seed, batch, time_dim, learning_rate, s2h_auc, 
 def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, elapsed_time, OUT_DIR, SEED, RESULT_CSV, RUN_NAME): 
     #-----------------FIDELITY-----------------#
     #column wise correlations 
-    #cwc = get_column_wise_correlationsM(df_real, df_syn, f"{OUT_DIR}/correlations", True) 
+    cwc = get_column_wise_correlationsM(df_real, df_syn, f"{OUT_DIR}/correlations", True) 
     #ad2d, continuous_w_d = compute_dimension_wide_distribution(df_real, df_syn, f"{OUT_DIR}/dimension_wide_distributions")
     #latent_cluster_analysis = latent_cluster_analysisM(df_real, df_syn, f"{OUT_DIR}/PCA")
     #run_PCA(df_real, [df_syn], f"{OUT_DIR}/PCA", SEED)
