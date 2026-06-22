@@ -12,6 +12,6 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation_MIMIC/reinforce/seed2 --RESULT_CSV ablation.csv --RUN_NAME reinforce_2 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed2 --SEED 2 --ABLATION reinforce
-python -m RL.train --OUT_DIR ablation_MIMIC/reparam_gan/seed2 --RESULT_CSV ablation.csv --RUN_NAME reparam_gan_2 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed2 --SEED 2 --ABLATION reparam_gan
-python -m RL.train --OUT_DIR ablation_MIMIC/no_entropy/seed2 --RESULT_CSV ablation.csv --RUN_NAME no_entropy_2 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed2 --SEED 2 --ABLATION no_entropy
+python -m RL.train --OUT_DIR ablation_MIMIC/reinforce/seed2 --RESULT_CSV ablation_MIMIC.csv --RUN_NAME reinforce_2 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed2 --SEED 2 --ABLATION reinforce
+python -m RL.train --OUT_DIR ablation_MIMIC/reparam_gan/seed2 --RESULT_CSV ablation_MIMIC.csv --RUN_NAME reparam_gan_2 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed2 --SEED 2 --ABLATION reparam_gan
+python -m RL.train --OUT_DIR ablation_MIMIC/no_entropy/seed2 --RESULT_CSV ablation_MIMIC.csv --RUN_NAME no_entropy_2 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed2 --SEED 2 --ABLATION no_entropy
