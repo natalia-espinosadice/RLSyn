@@ -491,7 +491,7 @@ def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm,
     #df_hold_norm_bal = df_hold_norm.sample(n=30000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
     df_train_norm_unbal = df_train_norm.sample(n=21000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
     df_hold_norm_unbal = df_hold_norm.sample(n=9000, random_state=H.SEED)[H.NUM_COLS + H.CAT_COLS]
-    mem_aucs = mem_risk_MIMIC(df_train_norm_bal, df_hold_norm_bal, df_syn_norm, H.CAT_COLS, H.NUM_COLS, f"{H.OUT_DIR}/mem_risk", H.SEED)
+    mem_aucs = mem_risk_MIMIC(df_train_norm_unbal, df_hold_norm_unbal, df_syn_norm, H.CAT_COLS, H.NUM_COLS, f"{H.OUT_DIR}/mem_risk", H.SEED)
     #-----------------LOG RESULTS-----------------#
     with open(f"{H.OUT_DIR}/eval.txt", "a") as f:
         f.write(f"CWC: {cwc}\nr2s_auc: {r2s_auc}\nr2s_prauc: {r2s_prauc}\nr2s_acc: {r2s_acc}\ns2h_auc: {s2h_auc}\ns2h_prauc: {s2h_prauc}\ns2h_acc: {s2h_acc}\n"
@@ -528,6 +528,7 @@ def main():
         H = H.override( 
             DEVICE = "cuda" if torch.cuda.is_available() else "cpu", 
             NPY_PATH = f"MIMIC_DATA/min_max_log.npy",
+            #NPY_PATH = f"RLSYN_paper_results/MIMIC/MIMIC_DATA/seeds/min_max_log.npy",
         )
     #train
     set_seed(H.SEED)
