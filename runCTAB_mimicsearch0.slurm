@@ -11,4 +11,4 @@
 
 
 
-python -m CTAB_GAN.main_mimic --seed 6
+python -m CTAB_GAN.main_mimic 
