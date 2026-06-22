@@ -168,8 +168,8 @@ if __name__ == "__main__":
     results_csv = f"CTAB_GAN/CTAB_GAN_MIMIC/results.csv"
     for seed in [6, 7, 8, 9]: 
         trial_dir = f"CTAB_GAN/CTAB_GAN_MIMIC/seed{seed}" 
-        npy_path = "RLSYN_paper_results/MIMIC/MIMIC_DATA/seeds/min_max_log.npy"
-        data_path = f"RLSYN_paper_results/MIMIC/MIMIC_DATA/seeds/seed{seed}" 
+        npy_path = "MIMIC_DATA/seeds/min_max_log.npy"
+        data_path = f"MIMIC_DATA/seeds/seed{seed}" 
         df_syn = pd.read_csv(f"{trial_dir}/synthetic.csv")[NUM_COLS + CAT_COLS]
         feature_range = np.load(npy_path, allow_pickle=True).item()
         for col in NUM_COLS:
