@@ -169,7 +169,7 @@ if __name__ == "__main__":
     for seed in [6, 7, 8, 9]: 
         trial_dir = f"CTAB_GAN/CTAB_GAN_MIMIC/seed{seed}" 
         npy_path = "MIMIC_DATA/min_max_log.npy"
-        data_path = f"MIMIC_DATA/seeds/seed{seed}" 
+        data_path = f"MIMIC_DATA/seed{seed}" 
         df_syn = pd.read_csv(f"{trial_dir}/synthetic.csv")[NUM_COLS + CAT_COLS]
         feature_range = np.load(npy_path, allow_pickle=True).item()
         for col in NUM_COLS:
@@ -194,6 +194,7 @@ if __name__ == "__main__":
         df_train_norm = pd.read_csv(f"{data_path}/normalized_training_data_{seed}.csv")[NUM_COLS + CAT_COLS]
         df_hold_norm =  pd.read_csv(f"{data_path}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
         df_real_norm = pd.concat([df_train_norm, df_hold_norm])[NUM_COLS + CAT_COLS]
+        print(f"starting eval seed {seed}")
         evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, 0, trial_dir, seed, results_csv, f"ctabgan_seed{seed}")    
         
 
