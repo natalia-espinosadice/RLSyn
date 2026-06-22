@@ -47,8 +47,12 @@ def log_result(RESULTS_CSV, tag, seed, batch, time_dim, learning_rate, s2h_auc, 
 
 def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, elapsed_time, OUT_DIR, SEED, RESULT_CSV, RUN_NAME): 
     #-----------------FIDELITY-----------------#
+    start_time = time.time()
     #column wise correlations 
     cwc = get_column_wise_correlationsM(df_real, df_syn, f"{OUT_DIR}/correlations", True) 
+    elapsed_t = (time.time() - start_time) / 60
+    with open(f"{OUT_DIR}/track.txt", "a") as f:
+        f.write(f"cwc done {elapsed_t}\n")
     #ad2d, continuous_w_d = compute_dimension_wide_distribution(df_real, df_syn, f"{OUT_DIR}/dimension_wide_distributions")
     #latent_cluster_analysis = latent_cluster_analysisM(df_real, df_syn, f"{OUT_DIR}/PCA")
     #run_PCA(df_real, [df_syn], f"{OUT_DIR}/PCA", SEED)
@@ -56,27 +60,43 @@ def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm,
     #combined_clinical_violations = clinical_knowledge_violation(df_train, df_syn, CAT_COLS, f"{OUT_DIR}/clinical_knowledge_violation")
     ad2d, cwc, continuous_w_d, latent_clustser_analysis, mca_dist, mca_tvd_dist, combined_clinical_violations = 0, 0, 0, 0, 0, 0, 0
     #-----------------UTILITY-----------------#
+    start_time = time.time()
     EXCLUDE_COLS = ['WHITE', 'BLACK', 'ASIAN', 'HISPANIC', 'UN', 'OTHER', 'DIE_1y']
     cat_cols = [c for c in CAT_COLS if c not in EXCLUDE_COLS]
     r2s_results = train_and_test_classification(df_real_norm, df_syn_norm, f"{OUT_DIR}/real_to_synthetic", SEED, cat_cols)
     r2s_auc = r2s_results["test"]["auroc"]
     r2s_prauc = r2s_results["test"]["prauc"]
     r2s_acc  = r2s_results["test"]["acc"]
+    elapsed_t = (time.time() - start_time) / 60
+    with open(f"{OUT_DIR}/track.txt", "a") as f:
+        f.write(f"r2s done {elapsed_t}\n")
+    start_time = time.time() 
     s2h_results = train_and_test_classification(df_syn_norm, df_hold_norm, f"{OUT_DIR}/synthetic_to_hold", SEED,  cat_cols)
     s2h_auc = s2h_results["test"]["auroc"]
     s2h_prauc = s2h_results["test"]["prauc"]
     s2h_acc  = s2h_results["test"]["acc"]
-    r2r_results = train_and_test_classification(df_train_norm, df_hold_norm, f"{OUT_DIR}/real_to_real", SEED, cat_cols)
-    r2r_auc = r2r_results["test"]["auroc"]
-    r2r_prauc = r2r_results["test"]["prauc"]
-    r2r_acc  = r2r_results["test"]["acc"]
+    elapsed_t = (time.time() - start_time) / 60
+    with open(f"{OUT_DIR}/track.txt", "a") as f:
+        f.write(f"r2s done {elapsed_t}\n")
+    start_time = time.time() 
+    #r2r_results = train_and_test_classification(df_train_norm, df_hold_norm, f"{OUT_DIR}/real_to_real", SEED, cat_cols)
+    r2r_auc = 0 # r2r_results["test"]["auroc"]
+    r2r_prauc = 0 # r2r_results["test"]["prauc"]
+    r2r_acc  = 0 # r2r_results["test"]["acc"]
     #-----PRIVAVY------#
     df_train_norm_bal = df_train_norm.sample(n=21000, random_state=SEED)[NUM_COLS + CAT_COLS]
     df_hold_norm_bal = df_hold_norm.sample(n=9000, random_state=SEED)[NUM_COLS + CAT_COLS]
     mem_aucs = mem_risk_MIMIC(df_train_norm_bal, df_hold_norm_bal, df_syn_norm, CAT_COLS, NUM_COLS, f"{OUT_DIR}/mem_risk", SEED)
+    elapsed_t = (time.time() - start_time) / 60
+    with open(f"{OUT_DIR}/track.txt", "a") as f:
+        f.write(f"mem 1 done {elapsed_t}\n")
+    start_time = time.time() 
     df_train_norm_unbal = df_train_norm.sample(n=30000, random_state=SEED)[NUM_COLS + CAT_COLS]
     df_hold_norm_unbal = df_hold_norm.sample(n=30000, random_state=SEED)[NUM_COLS + CAT_COLS]
     mem_aucs2 = mem_risk_MIMIC(df_train_norm_unbal, df_hold_norm_unbal, df_syn_norm, CAT_COLS, NUM_COLS, f"{OUT_DIR}/mem_risk_3030", SEED)
+    elapsed_t = (time.time() - start_time) / 60
+    with open(f"{OUT_DIR}/track.txt", "a") as f:
+        f.write(f"mem 1 done {elapsed_t}\n")
     #-----------------LOG RESULTS-----------------#
     with open(f"{OUT_DIR}/eval.txt", "a") as f:
         f.write(f"CWC: {cwc}\nr2s_auc: {r2s_auc}\nr2s_prauc: {r2s_prauc}\nr2s_acc: {r2s_acc}\ns2h_auc: {s2h_auc}\ns2h_prauc: {s2h_prauc}\ns2h_acc: {s2h_acc}\n"
@@ -128,7 +148,7 @@ def train(base_dir, seed, epochs, batch_size, num_channels, random_dim ):
         df_syn[col] = (1.0 - df_syn[col]) * xmin + df_syn[col] * xmax
     df_syn.to_csv(save_syn_rescaled)
     elapsed_time = (time.time() - start_time) / 60
-
+    
     #evaluation 
     df_train_norm = pd.read_csv(f"{data_path}/normalized_training_data_{seed}.csv")[NUM_COLS + CAT_COLS]
     df_hold_norm =  pd.read_csv(f"{data_path}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
@@ -169,7 +189,7 @@ def main():
 if __name__ == "__main__":
     #main()
     results_csv = f"CTAB_GAN/MIMIC/results.csv"
-    for seed in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]: #[6, 7, 8, 9]: 
+    for seed in [9]: #[6, 7, 8, 9]: 
         trial_dir = f"CTAB_GAN/MIMIC/reduced/seed{seed}" 
         npy_path = "MIMIC_DATA/min_max_log.npy"
         data_path = f"MIMIC_DATA/seed{seed}" 
