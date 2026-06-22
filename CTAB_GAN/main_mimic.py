@@ -1,7 +1,6 @@
 import os
 import csv
 import time
-import optuna
 import numpy as np
 import pandas as pd
 import argparse
@@ -49,12 +48,13 @@ def log_result(RESULTS_CSV, tag, seed, batch, time_dim, learning_rate, s2h_auc, 
 def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, elapsed_time, OUT_DIR, SEED, RESULT_CSV, RUN_NAME): 
     #-----------------FIDELITY-----------------#
     #column wise correlations 
-    cwc = get_column_wise_correlationsM(df_real, df_syn, f"{OUT_DIR}/correlations", True) 
-    ad2d, continuous_w_d = compute_dimension_wide_distribution(df_real, df_syn, f"{OUT_DIR}/dimension_wide_distributions")
-    latent_cluster_analysis = latent_cluster_analysisM(df_real, df_syn, f"{OUT_DIR}/PCA")
-    run_PCA(df_real, [df_syn], f"{OUT_DIR}/PCA", SEED)
-    mca_dist, mca_tvd_dist = medical_concept_abundance(df_real, df_syn, CAT_COLS, f"{OUT_DIR}/medical_abundance")
-    combined_clinical_violations = clinical_knowledge_violation(df_train, df_syn, CAT_COLS, f"{OUT_DIR}/clinical_knowledge_violation")
+    #cwc = get_column_wise_correlationsM(df_real, df_syn, f"{OUT_DIR}/correlations", True) 
+    #ad2d, continuous_w_d = compute_dimension_wide_distribution(df_real, df_syn, f"{OUT_DIR}/dimension_wide_distributions")
+    #latent_cluster_analysis = latent_cluster_analysisM(df_real, df_syn, f"{OUT_DIR}/PCA")
+    #run_PCA(df_real, [df_syn], f"{OUT_DIR}/PCA", SEED)
+    #mca_dist, mca_tvd_dist = medical_concept_abundance(df_real, df_syn, CAT_COLS, f"{OUT_DIR}/medical_abundance")
+    #combined_clinical_violations = clinical_knowledge_violation(df_train, df_syn, CAT_COLS, f"{OUT_DIR}/clinical_knowledge_violation")
+    ad2d, cwc, continuous_w_d, latent_clustser_analysis, mca_dist, mca_tvd_dist, combined_clinical_violations = 0, 0, 0, 0, 0, 0, 0
     #-----------------UTILITY-----------------#
     EXCLUDE_COLS = ['WHITE', 'BLACK', 'ASIAN', 'HISPANIC', 'UN', 'OTHER', 'DIE_1y']
     cat_cols = [c for c in CAT_COLS if c not in EXCLUDE_COLS]
@@ -164,4 +164,37 @@ def main():
     
 
 if __name__ == "__main__":
-    main()
+    #main()
+    results_csv = f"CTAB_GAN_MIMIC/results.csv"
+    for seed in [0, 1, 2, 3, 4]: 
+        trial_dir = f"CTAB_GAN_MIMIC/seed{seed}" 
+        npy_path = "RLSYN_paper_results/MIMIC/MIMIC_DATA/seeds/min_max_log.npy"
+        data_path = f"RLSYN_paper_results/MIMIC/MIMIC_DATA/seeds/seed{seed}" 
+        df_syn = pd.read_csv(f"{trial_dir}/synthetic.csv")[NUM_COLS + CAT_COLS]
+        feature_range = np.load(npy_path, allow_pickle=True).item()
+        for col in NUM_COLS:
+            xmin, xmax = feature_range[col]
+            df_syn[col] = (1.0 - df_syn[col]) * xmin + df_syn[col] * xmax
+        df_syn.to_csv(f"{trial_dir}/synthetic_rescaled.csv")
+
+        #evaluation
+        df_syn_norm =  pd.read_csv(f"CTAB_GAN_MIMIC/seed{seed}/synthetic.csv")[NUM_COLS + CAT_COLS]
+        df_syn = pd.read_csv(f"{trial_dir}/synthetic_rescaled.csv")[NUM_COLS + CAT_COLS]
+        df_train_norm = pd.read_csv(f"{data_path}/normalized_training_data_{seed}.csv")[NUM_COLS + CAT_COLS]
+        df_hold_norm =  pd.read_csv(f"{data_path}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
+        #unnormalize (save space by not saving)
+        feature_range = np.load(npy_path, allow_pickle=True).item()
+        for col in NUM_COLS:
+            xmin, xmax = feature_range[col]
+            df_train_norm[col] = (1.0 - df_train_norm[col]) * xmin + df_train_norm[col] * xmax
+            df_hold_norm[col] = (1.0 - df_hold_norm[col]) * xmin + df_hold_norm[col] * xmax
+        df_train = df_train_norm 
+        df_hold = df_hold_norm 
+        df_real = pd.concat([df_train, df_hold])[NUM_COLS + CAT_COLS]
+        df_train_norm = pd.read_csv(f"{data_path}/normalized_training_data_{seed}.csv")[NUM_COLS + CAT_COLS]
+        df_hold_norm =  pd.read_csv(f"{data_path}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
+        df_real_norm = pd.concat([df_train_norm, df_hold_norm])[NUM_COLS + CAT_COLS]
+        evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, 0, trial_dir, seed, results_csv, f"ctabgan_seed{seed}")    
+        
+
+
