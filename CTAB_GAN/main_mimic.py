@@ -165,9 +165,9 @@ def main():
 
 if __name__ == "__main__":
     #main()
-    results_csv = f"CTAB_GAN_MIMIC/results.csv"
+    results_csv = f"CTAB_GAN/CTAB_GAN_MIMIC/results.csv"
     for seed in [6, 7, 8, 9]: 
-        trial_dir = f"CTAB_GAN_MIMIC/seed{seed}" 
+        trial_dir = f"CTAB_GAN/CTAB_GAN_MIMIC/seed{seed}" 
         npy_path = "RLSYN_paper_results/MIMIC/MIMIC_DATA/seeds/min_max_log.npy"
         data_path = f"RLSYN_paper_results/MIMIC/MIMIC_DATA/seeds/seed{seed}" 
         df_syn = pd.read_csv(f"{trial_dir}/synthetic.csv")[NUM_COLS + CAT_COLS]
@@ -178,7 +178,7 @@ if __name__ == "__main__":
         df_syn.to_csv(f"{trial_dir}/synthetic_rescaled.csv")
 
         #evaluation
-        df_syn_norm =  pd.read_csv(f"CTAB_GAN_MIMIC/seed{seed}/synthetic.csv")[NUM_COLS + CAT_COLS]
+        df_syn_norm =  pd.read_csv(f"CTAB_GAN/CTAB_GAN_MIMIC/seed{seed}/synthetic.csv")[NUM_COLS + CAT_COLS]
         df_syn = pd.read_csv(f"{trial_dir}/synthetic_rescaled.csv")[NUM_COLS + CAT_COLS]
         df_train_norm = pd.read_csv(f"{data_path}/normalized_training_data_{seed}.csv")[NUM_COLS + CAT_COLS]
         df_hold_norm =  pd.read_csv(f"{data_path}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
