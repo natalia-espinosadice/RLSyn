@@ -74,6 +74,9 @@ def evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm,
     df_train_norm_bal = df_train_norm.sample(n=21000, random_state=SEED)[NUM_COLS + CAT_COLS]
     df_hold_norm_bal = df_hold_norm.sample(n=9000, random_state=SEED)[NUM_COLS + CAT_COLS]
     mem_aucs = mem_risk_MIMIC(df_train_norm_bal, df_hold_norm_bal, df_syn_norm, CAT_COLS, NUM_COLS, f"{OUT_DIR}/mem_risk", SEED)
+    df_train_norm_unbal = df_train_norm.sample(n=30000, random_state=SEED)[NUM_COLS + CAT_COLS]
+    df_hold_norm_unbal = df_hold_norm.sample(n=30000, random_state=SEED)[NUM_COLS + CAT_COLS]
+    mem_aucs2 = mem_risk_MIMIC(df_train_norm_unbal, df_hold_norm_unbal, df_syn_norm, CAT_COLS, NUM_COLS, f"{OUT_DIR}/mem_risk_3030", SEED)
     #-----------------LOG RESULTS-----------------#
     with open(f"{OUT_DIR}/eval.txt", "a") as f:
         f.write(f"CWC: {cwc}\nr2s_auc: {r2s_auc}\nr2s_prauc: {r2s_prauc}\nr2s_acc: {r2s_acc}\ns2h_auc: {s2h_auc}\ns2h_prauc: {s2h_prauc}\ns2h_acc: {s2h_acc}\n"
@@ -165,9 +168,9 @@ def main():
 
 if __name__ == "__main__":
     #main()
-    results_csv = f"CTAB_GAN/CTAB_GAN_MIMIC/results.csv"
-    for seed in [0, 1, 2, 3]: #[6, 7, 8, 9]: 
-        trial_dir = f"CTAB_GAN/CTAB_GAN_MIMIC/seed{seed}" 
+    results_csv = f"CTAB_GAN/MIMIC/results.csv"
+    for seed in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]: #[6, 7, 8, 9]: 
+        trial_dir = f"CTAB_GAN/MIMIC/reduced/seed{seed}" 
         npy_path = "MIMIC_DATA/min_max_log.npy"
         data_path = f"MIMIC_DATA/seed{seed}" 
         df_syn = pd.read_csv(f"{trial_dir}/synthetic.csv")[NUM_COLS + CAT_COLS]
@@ -178,7 +181,7 @@ if __name__ == "__main__":
         df_syn.to_csv(f"{trial_dir}/synthetic_rescaled.csv")
 
         #evaluation
-        df_syn_norm =  pd.read_csv(f"CTAB_GAN/CTAB_GAN_MIMIC/seed{seed}/synthetic.csv")[NUM_COLS + CAT_COLS]
+        df_syn_norm =  pd.read_csv(f"{trial_dir}/synthetic.csv")[NUM_COLS + CAT_COLS]
         df_syn = pd.read_csv(f"{trial_dir}/synthetic_rescaled.csv")[NUM_COLS + CAT_COLS]
         df_train_norm = pd.read_csv(f"{data_path}/normalized_training_data_{seed}.csv")[NUM_COLS + CAT_COLS]
         df_hold_norm =  pd.read_csv(f"{data_path}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
