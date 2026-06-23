@@ -189,7 +189,7 @@ def main():
 if __name__ == "__main__":
     #main()
     results_csv = f"CTAB_GAN/MIMIC/results.csv"
-    for seed in [9]: #[6, 7, 8, 9]: 
+    for seed in [3]: #[6, 7, 8, 9]: 
         trial_dir = f"CTAB_GAN/MIMIC/reduced/seed{seed}" 
         npy_path = "MIMIC_DATA/min_max_log.npy"
         data_path = f"MIMIC_DATA/seed{seed}" 
