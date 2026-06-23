@@ -189,7 +189,7 @@ def main():
 if __name__ == "__main__":
     #main()
     results_csv = f"CTAB_GAN/MIMIC/results.csv"
-    for seed in [3]: #[6, 7, 8, 9]: 
+    for seed in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]: #[6, 7, 8, 9]: 
         trial_dir = f"CTAB_GAN/MIMIC/reduced/seed{seed}" 
         npy_path = "MIMIC_DATA/min_max_log.npy"
         data_path = f"MIMIC_DATA/seed{seed}" 
@@ -218,7 +218,10 @@ if __name__ == "__main__":
         df_hold_norm =  pd.read_csv(f"{data_path}/normalized_testing_data_{seed}.csv")[NUM_COLS + CAT_COLS]
         df_real_norm = pd.concat([df_train_norm, df_hold_norm])[NUM_COLS + CAT_COLS]
         print(f"starting eval seed {seed}")
-        evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, 0, trial_dir, seed, results_csv, f"ctabgan_seed{seed}")    
+        #evaluate_model_MIMIC(df_train, df_real, df_syn, df_train_norm, df_hold_norm, df_real_norm, df_syn_norm, 0, trial_dir, seed, results_csv, f"ctabgan_seed{seed}") 
+        cwc = get_column_wise_correlationsM(df_real, df_syn, f"{trial_dir}/correlations", True)  
+        with open(f"CTAB_GAN/MIMIC/cwc.txt", "a") as f:
+            f.write(f"seeed {seed}, {cwc}\n")
         
 
 
