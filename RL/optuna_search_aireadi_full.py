@@ -37,21 +37,21 @@ def evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn
             f"r2s_auc: {r2s_auc}\nr2s_acc: {r2s_acc}\ns2h_auc: {s2h_auc}\ns2h_acc: {s2h_acc}\n")
         f.write(f"BATCH: {H.BATCH}, NOISE_DIM: {H.NOISE_DIM}, N_CRITIC: {H.DISC_STEPS}, GP_COEFF: {H.GRADIENT_PENALTY}, DISC_LR: {H.D_LR}, GEN LR: {H.G_LR}, G_HIDDEN_DIM: {H.G_H}, D_HIDDEN_DIM: {H.D_H}")
     log_result_RL_search(H.RESULT_CSV, H.RUN_NAME, H.ITERS, H.DATA_SIZE, H.SEED, cwc, synth_mem_auc, s2h_auc, s2h_acc, r2s_auc, r2s_acc)
-    return s2h_auc, r2s_auc 
+    return s2h_auc, r2s_auc, synth_mem_auc 
 
 def objective(trial:optuna.Trial, study_name, data_path): 
     #define parameters 
-    BATCH = trial.suggest_int("batch", 64, 512, step=64) 
-    NOISE_DIM = trial.suggest_int("noise_dim", 16, 128, step=16) 
-    PPO_EPOCHS = trial.suggest_int("ppo_epochs", 1, 5) 
-    DISC_STEPS = trial.suggest_int("disc_steps", 1, 5) 
-    MEAN_PENALTY_SCALE = trial.suggest_float("mean_penalty", 0, 0.2, step=0.1) 
+    BATCH = trial.suggest_int("batch", 128, 384, step=128) 
+    NOISE_DIM = trial.suggest_int("noise_dim", 16, 112, step=48) 
+    PPO_EPOCHS = trial.suggest_int("ppo_epochs", 1, 5, step = 2) 
+    DISC_STEPS = trial.suggest_int("disc_steps", 1, 5, step =2) 
+    MEAN_PENALTY_SCALE = trial.suggest_float("mean_penalty", 0, 0.2, step=0.2) 
     GRADIENT_PENALTY = trial.suggest_int("gradient_penalty", 5, 10, step = 5) 
-    USE_TANH = trial.suggest_categorical("use_tanh", [True, False])
+    USE_TANH = True # trial.suggest_categorical("use_tanh", [True, False])
     G_LR = trial.suggest_categorical("g_lr", [5e-5, 1e-4, 2e-4]) 
     D_LR = trial.suggest_categorical("d_lr", [1e-5, 3e-5, 5e-5, 5e-4]) 
-    G_H = trial.suggest_int("g_h", 64, 128, step=64) 
-    D_H = trial.suggest_int("d_h", 64, 128, step=64) 
+    G_H = 64 # trial.suggest_int("g_h", 64, 128, step=64) 
+    D_H = 64 # trial.suggest_int("d_h", 64, 128, step=64) 
     #define save paths 
     
     H = HyperParams_AIREADI()
@@ -97,8 +97,8 @@ def objective(trial:optuna.Trial, study_name, data_path):
     df_real_with_patients_norm =  pd.read_csv(f"{H.DATA_PATH}/preprocessed_data_with_patients.csv")[H.NUM_COLS + H.CAT_COLS +["patient_id"]]
     df_syn_norm = pd.read_csv(f"{H.OUT_DIR}/synthetic.csv")[H.NUM_COLS+H.CAT_COLS]
     try:
-        s2h_auc, r2s_auc = evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn_norm, df_real_with_patients_norm, H)          
-        return s2h_auc, r2s_auc
+        s2h_auc, r2s_auc, synth_mem_auc = evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn_norm, df_real_with_patients_norm, H)          
+        return s2h_auc, r2s_auc, synth_mem_auc
     except Exception as e:
         raise optuna.TrialPruned(f"Pruned due to evaluation failure")
 
@@ -121,9 +121,9 @@ def main():
         study_name=f"{study_name}",
         storage=f"sqlite:///{study_name}.db",       
         load_if_exists=True,
-        directions= ("maximize", "maximize")
+        directions= ("maximize", "maximize", "minimize")
     )
-    objectives = ["s2h_auc", "r2s_auc"]
+    objectives = ["s2h_auc", "r2s_auc", "synth_mem_auc"]
     study.optimize(lambda trial: objective(trial, study_name, data_path), n_trials = 20)
     #best trial info 
     best_save = f"{base_dir}/best_trial_summary.txt"
