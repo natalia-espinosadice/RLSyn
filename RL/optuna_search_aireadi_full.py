@@ -98,7 +98,7 @@ def objective(trial:optuna.Trial, study_name, data_path):
     df_syn_norm = pd.read_csv(f"{H.OUT_DIR}/synthetic.csv")[H.NUM_COLS+H.CAT_COLS]
     try:
         s2h_auc, r2s_auc, synth_mem_auc = evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn_norm, df_real_with_patients_norm, H)          
-        return s2h_auc, r2s_auc, synth_mem_auc
+        return s2h_auc, r2s_auc
     except Exception as e:
         raise optuna.TrialPruned(f"Pruned due to evaluation failure")
 
@@ -121,9 +121,9 @@ def main():
         study_name=f"{study_name}",
         storage=f"sqlite:///{study_name}.db",       
         load_if_exists=True,
-        directions= ("maximize", "maximize", "minimize")
+        directions= ("maximize", "maximize")
     )
-    objectives = ["s2h_auc", "r2s_auc", "synth_mem_auc"]
+    objectives = ["s2h_auc", "r2s_auc"]
     study.optimize(lambda trial: objective(trial, study_name, data_path), n_trials = 20)
     #best trial info 
     best_save = f"{base_dir}/best_trial_summary.txt"
