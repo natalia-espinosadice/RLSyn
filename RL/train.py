@@ -811,8 +811,8 @@ def main():
             GRADIENT_PENALTY = 5, 
             G_LR = 0.0001, 
             D_LR = 5e-5, 
-            G_HIDDEN_DIM = 64, 
-            D_HIDDEN_DIM = 64, 
+            G_H = 64, 
+            D_H = 64, 
 
 
         )
