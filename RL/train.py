@@ -321,35 +321,54 @@ def train(df_train, real, loader, H):
     elapsed_time = (time.time() - start_time) / 60 # minutes 
     return df_syn, elapsed_time
 
+def det_GAN(df_train, real, loader, H):
+    start_time = time.time()
 
-def det_GAN(df_train, real, loader, H): 
-    start_time = time.time() 
-    #instantiate
-    G, D = build_models(H)
+    class SimpleGenerator(nn.Module):
+        def __init__(self):
+            super().__init__()
+            h = H.G_H
+            self.net = nn.Sequential(
+                nn.Linear(H.NOISE_DIM, h), nn.ReLU(),
+                nn.Linear(h, h), nn.ReLU(),
+                nn.Linear(h, len(H.NUM_COLS) + H.CAT_DIM)
+            )
+        def forward(self, z):
+            out = self.net(z)
+            num = torch.sigmoid(out[:, :len(H.NUM_COLS)])
+            cat = torch.sigmoid(out[:, len(H.NUM_COLS):])
+            return torch.cat([num, cat], 1)
+
+    class Disc(nn.Module):
+        def __init__(self):
+            super().__init__()
+            h = H.D_H
+            self.fc = nn.Sequential(
+                nn.Linear(len(H.NUM_COLS) + H.CAT_DIM, h), nn.LeakyReLU(0.2),
+                nn.Linear(h, h), nn.LeakyReLU(0.2),
+                nn.Linear(h, 1)
+            )
+        def forward(self, row):
+            return self.fc(row)
+
+    G = SimpleGenerator().to(H.DEVICE)
+    D = Disc().to(H.DEVICE)
     opt_G = torch.optim.Adam(G.parameters(), lr=H.G_LR)
     opt_D = torch.optim.Adam(D.parameters(), lr=H.D_LR)
     os.makedirs(f"{H.OUT_DIR}/losses", exist_ok=True)
     with open(f"{H.OUT_DIR}/losses/output.txt", "w") as f:
         f.write(f"Logging\n")
-    with open(f"{H.OUT_DIR}/losses/G_loss.txt", "w") as f:
-        f.write(f"Logging\n")
-    #ppo training loop
+
     real_iter = iter(loader)
     for it in range(H.ITERS):
-        #rollout policy 
         z = torch.randn(H.BATCH, H.NOISE_DIM, device=H.DEVICE)
-        h = G.core(z)
-        num = torch.sigmoid(G.mu(h))
-        cat_soft = torch.sigmoid(G.cat_logits(h))
-        cat = (cat_soft > 0.5).float() + (cat_soft - cat_soft.detach())
-        rows = torch.cat([num, cat], 1)
+        rows = G(z)
         fake_logits = D(rows)
         loss_G = F.binary_cross_entropy_with_logits(fake_logits, torch.ones_like(fake_logits))
         opt_G.zero_grad()
         loss_G.backward()
         opt_G.step()
-        
-        #discriminator update 
+
         for d_it in range(H.DISC_STEPS):
             try:
                 real_batch, = next(real_iter)
@@ -357,44 +376,38 @@ def det_GAN(df_train, real, loader, H):
                 real_iter = iter(loader)
                 real_batch, = next(real_iter)
             real_batch = real_batch.to(H.DEVICE)
-            #fresh fake batch
             with torch.no_grad():
-                h_fake = G.core(torch.randn(H.BATCH, H.NOISE_DIM, device=H.DEVICE))
-                num_fake = torch.sigmoid(G.mu(h_fake))
-                cat_fake = (torch.sigmoid(G.cat_logits(h_fake)) > 0.5).float()
-                fake_batch = torch.cat([num_fake, cat_fake], 1)
-            #R1 gradient penalty on real data --> not quite WGAN!!! Could try with wasserstein distance 
+                fake_batch = G(torch.randn(H.BATCH, H.NOISE_DIM, device=H.DEVICE))
             real_batch.requires_grad_(True)
             real_logits = D(real_batch)
             grad_real = torch.autograd.grad(real_logits.sum(), real_batch, create_graph=True)[0]
             gp = H.GRADIENT_PENALTY * 0.5 * grad_real.pow(2).view(real_batch.size(0), -1).sum(1).mean()
-            loss_D = F.binary_cross_entropy_with_logits(real_logits, torch.ones_like(real_batch[:, :1])) + F.binary_cross_entropy_with_logits(D(fake_batch), torch.zeros_like(fake_batch[:, :1])) + gp
+            loss_D = (F.binary_cross_entropy_with_logits(real_logits, torch.ones_like(real_batch[:, :1]))
+                    + F.binary_cross_entropy_with_logits(D(fake_batch), torch.zeros_like(fake_batch[:, :1]))
+                    + gp)
             opt_D.zero_grad()
             loss_D.backward()
             opt_D.step()
-        if it % 50 == 0:
+
+        if it % 5000 == 0:
             print(f"{it} complete")
             with open(f"{H.OUT_DIR}/losses/output.txt", "a") as f:
-                f.write(f"iteration {it} | D LOSS = {loss_D.item():.4f} | G LOSS = {loss_G.item():.4f}  \n")
-    #generate and save  
+                f.write(f"iteration {it} | D LOSS = {loss_D.item():.4f} | G LOSS = {loss_G.item():.4f}\n")
+
     with torch.no_grad():
-        h = G.core(torch.randn(H.NUM_SAMPLES, H.NOISE_DIM, device=H.DEVICE))
-        num = torch.sigmoid(G.mu(h))
-        cat = (torch.sigmoid(G.cat_logits(h)) > 0.5).float()
-        synthetic = torch.cat([num, cat], 1)
+        synthetic = G(torch.randn(H.NUM_SAMPLES, H.NOISE_DIM, device=H.DEVICE))
     cols = H.NUM_COLS + H.CAT_COLS
-    if H.DEVICE == "cuda": 
-        df_syn = pd.DataFrame(synthetic.cpu().detach().numpy(), columns=cols)
-    else: 
-        df_syn = pd.DataFrame(synthetic.detach().numpy(), columns=cols)
+    if H.DEVICE == "cuda":
+        df_syn = pd.DataFrame(synthetic.cpu().numpy(), columns=cols)
+    else:
+        df_syn = pd.DataFrame(synthetic.numpy(), columns=cols)
     df_syn.to_csv(f"{H.OUT_DIR}/synthetic.csv")
-    #rescale 
     feature_range = np.load(H.NPY_PATH, allow_pickle=True).item()
     for col in H.NUM_COLS:
         xmin, xmax = feature_range[col]
         df_syn[col] = (1.0 - df_syn[col]) * xmin + df_syn[col] * xmax
     df_syn.to_csv(f"{H.OUT_DIR}/synthetic_rescaled.csv")
-    elapsed_time = (time.time() - start_time) / 60 # minutes 
+    elapsed_time = (time.time() - start_time) / 60
     return df_syn, elapsed_time
 
 def no_clip_no_value(df_train, real, loader, H): 

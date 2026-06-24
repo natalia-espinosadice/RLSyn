@@ -12,10 +12,9 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_ppoepochs1/seed2 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_ppoepochs1_seed2 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed2 --SEED 2 --ABLATION no_clip_ppoepochs1
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_ppoepochs1/seed3 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_ppoepochs1_seed3 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed3 --SEED 3 --ABLATION no_clip_ppoepochs1
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_ppoepochs1/seed4 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_ppoepochs1_seed4 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed4 --SEED 4 --ABLATION no_clip_ppoepochs1
+python -m RL.train --OUT_DIR ablation/AIREADI/det_GAN/seed2 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME det_GANnew_seed2 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed2 --SEED 2 --ABLATION det_GAN
+python -m RL.train --OUT_DIR ablation/AIREADI/det_GAN/seed3 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME det_GANnew_seed3 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed3 --SEED 3 --ABLATION det_GAN
+python -m RL.train --OUT_DIR ablation/AIREADI/det_GAN/seed4 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME det_GANnew_seed4 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed4 --SEED 4 --ABLATION det_GAN
 
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip/seed2 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_seed2 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed2 --SEED 2 --ABLATION no_clip
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip/seed3 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_seed3 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed3 --SEED 3 --ABLATION no_clip
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip/seed4 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_seed4 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed4 --SEED 4 --ABLATION no_clip
+python -m RL.train --OUT_DIR ablation/AIREADI/det_GAN/seed0 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME det_GANnew_seed0 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0 --SEED 0 --ABLATION det_GAN
+python -m RL.train --OUT_DIR ablation/AIREADI/det_GAN/seed1 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME det_GANnew_seed1 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed1 --SEED 1 --ABLATION det_GAN
