@@ -1,17 +1,16 @@
 #!/bin/bash
-#SBATCH --job-name=seed1
+#SBATCH --job-name=clip
 #SBATCH --partition=gpu
-#SBATCH --qos=gpu-medium
+#SBATCH --qos=gpu-short
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=25G
-#SBATCH --time=11:59:59
+#SBATCH --time=03:59:59
 #SBATCH --output=slurm-%A.out    # %A = jobID, %a = array index
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation_MIMIC/reinforce/seed1 --RESULT_CSV ablation_MIMIC.csv --RUN_NAME reinforce_1 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed1 --SEED 1 --ABLATION reinforce
-python -m RL.train --OUT_DIR ablation_MIMIC/reparam_gan/seed1 --RESULT_CSV ablation_MIMIC.csv --RUN_NAME reparam_gan_1 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed1 --SEED 1 --ABLATION reparam_gan
-python -m RL.train --OUT_DIR ablation_MIMIC/no_entropy/seed1 --RESULT_CSV ablation_MIMIC.csv --RUN_NAME no_entropy_1 --DATASET MIMIC --DATA_PATH MIMIC_DATA/seed1 --SEED 1 --ABLATION no_entropy
+python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_no_value/seed0 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_no_value_seed0 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0 --SEED 0 --ABLATION no_clip_no_value
+python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_no_value/seed1 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_no_value_seed1 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed1 --SEED 1 --ABLATION no_clip_no_value
