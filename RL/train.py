@@ -813,9 +813,8 @@ def main():
             D_LR = 5e-5, 
             G_H = 64, 
             D_H = 64, 
-
-
         )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
     elif H.ABLATION == "reinforce": 
         df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
     elif H.ABLATION == "reparam_gan": 
