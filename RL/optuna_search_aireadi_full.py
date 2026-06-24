@@ -50,8 +50,8 @@ def objective(trial:optuna.Trial, study_name, data_path):
     USE_TANH = True # trial.suggest_categorical("use_tanh", [True, False])
     G_LR = trial.suggest_categorical("g_lr", [5e-5, 1e-4, 2e-4]) 
     D_LR = trial.suggest_categorical("d_lr", [1e-5, 3e-5, 5e-5, 5e-4]) 
-    G_H = 64 # trial.suggest_int("g_h", 64, 128, step=64) 
-    D_H = 64 # trial.suggest_int("d_h", 64, 128, step=64) 
+    G_H = trial.suggest_int("g_h", 64, 128, step=64) 
+    D_H = trial.suggest_int("d_h", 64, 128, step=64) 
     #define save paths 
     
     H = HyperParams_AIREADI()
