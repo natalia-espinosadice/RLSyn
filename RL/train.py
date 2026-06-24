@@ -353,7 +353,7 @@ def no_clip_no_value(df_train, real, loader, H):
         num_fake = rows[:, :len(H.NUM_COLS)]
         mean_pen = (num_fake.mean(0) - target_mean[0, :len(H.NUM_COLS)]).pow(2).mean()
         #PPO update 
-        for _ in range(H.PPO_EPOCHS):
+        for _ in range(1): # H.PPO_EPOCHS):
             logp, v = G.eval_action(z, rows)
             ratio = (logp - logp_old).exp()
             #surr1 = ratio * adv_n
@@ -445,7 +445,7 @@ def no_clip(df_train, real, loader, H):
         num_fake = rows[:, :len(H.NUM_COLS)]
         mean_pen = (num_fake.mean(0) - target_mean[0, :len(H.NUM_COLS)]).pow(2).mean()
         #PPO update 
-        for _ in range(H.PPO_EPOCHS):
+        for _ in range(1): # H.PPO_EPOCHS):
             logp, v = G.eval_action(z, rows)
             ratio = (logp - logp_old).exp()
             #surr1 = ratio * adv_n
@@ -730,9 +730,9 @@ def main():
     elif H.ABLATION == "no_entropy": 
         H = H.override(ENT_BETA = 0)
         df_syn, elapsed_time = train(df_train, real, loader, H)
-    elif H.ABLATION == "no_clip": 
+    elif H.ABLATION == "no_clip_ppoepochs1": 
         df_syn, elapsed_time = no_clip(df_train, real, loader, H)
-    elif H.ABLATION == "no_clip_no_value": 
+    elif H.ABLATION == "no_clip_no_value_ppoepochs1": 
         df_syn, elapsed_time = no_clip_no_value(df_train, real, loader, H)
     else: 
         df_syn, elapsed_time = train(df_train, real, loader, H)

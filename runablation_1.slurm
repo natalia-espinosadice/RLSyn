@@ -12,5 +12,5 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_no_value/seed0 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_no_value_seed0 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0 --SEED 0 --ABLATION no_clip_no_value
-python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_no_value/seed1 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_no_value_seed1 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed1 --SEED 1 --ABLATION no_clip_no_value
+python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_ppoepochs1/seed0 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_ppoepochs1_seed0 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0 --SEED 0 --ABLATION no_clip_ppoepochs1
+python -m RL.train --OUT_DIR ablation/AIREADI/no_clip_ppoepochs1/seed1 --RESULT_CSV ablation_AIREADI.csv --RUN_NAME no_clip_ppoepochs1_seed1 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed1 --SEED 1 --ABLATION no_clip_ppoepochs1
