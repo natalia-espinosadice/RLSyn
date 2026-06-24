@@ -42,16 +42,16 @@ def evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn
 def objective(trial:optuna.Trial, study_name, data_path): 
     #define parameters 
     BATCH = trial.suggest_int("batch", 128, 384, step=128) 
-    NOISE_DIM = trial.suggest_int("noise_dim", 16, 112, step=48) 
-    PPO_EPOCHS = trial.suggest_int("ppo_epochs", 1, 5, step = 2) 
-    DISC_STEPS = trial.suggest_int("disc_steps", 1, 5, step =2) 
-    MEAN_PENALTY_SCALE = trial.suggest_float("mean_penalty", 0, 0.2, step=0.2) 
-    GRADIENT_PENALTY = trial.suggest_int("gradient_penalty", 5, 10, step = 5) 
+    NOISE_DIM = trial.suggest_int("noise_dim", 16, 64, step=48) 
+    PPO_EPOCHS = trial.suggest_int("ppo_epochs", 3, 5, step = 2) 
+    DISC_STEPS = 3 #trial.suggest_int("disc_steps", 1, 5, step =2) 
+    MEAN_PENALTY_SCALE = 0 # trial.suggest_float("mean_penalty", 0, 0.2, step=0.2) 
+    GRADIENT_PENALTY = 10 # trial.suggest_int("gradient_penalty", 5, 10, step = 5) 
     USE_TANH = True # trial.suggest_categorical("use_tanh", [True, False])
-    G_LR = trial.suggest_categorical("g_lr", [5e-5, 1e-4, 2e-4]) 
+    G_LR = trial.suggest_categorical("g_lr", [5e-5, 5e-4, 2e-4, 1e-4]) 
     D_LR = trial.suggest_categorical("d_lr", [1e-5, 3e-5, 5e-5, 5e-4]) 
-    G_H = trial.suggest_int("g_h", 64, 128, step=64) 
-    D_H = trial.suggest_int("d_h", 64, 128, step=64) 
+    G_H = 64 #trial.suggest_int("g_h", 64, 128, step=64) 
+    D_H = 64 #trial.suggest_int("d_h", 64, 128, step=64) 
     #define save paths 
     
     H = HyperParams_AIREADI()
@@ -98,7 +98,7 @@ def objective(trial:optuna.Trial, study_name, data_path):
     df_syn_norm = pd.read_csv(f"{H.OUT_DIR}/synthetic.csv")[H.NUM_COLS+H.CAT_COLS]
     try:
         s2h_auc, r2s_auc, synth_mem_auc = evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn_norm, df_real_with_patients_norm, H)          
-        return s2h_auc, r2s_auc
+        return s2h_auc, r2s_auc, synth_mem_auc
     except Exception as e:
         raise optuna.TrialPruned(f"Pruned due to evaluation failure")
 
@@ -121,9 +121,9 @@ def main():
         study_name=f"{study_name}",
         storage=f"sqlite:///{study_name}.db",       
         load_if_exists=True,
-        directions= ("maximize", "maximize")
+        directions= ("maximize", "maximize", "minimize")
     )
-    objectives = ["s2h_auc", "r2s_auc"]
+    objectives = ["s2h_auc", "r2s_auc", "synth_mem_auc"]
     study.optimize(lambda trial: objective(trial, study_name, data_path), n_trials = 20)
     #best trial info 
     best_save = f"{base_dir}/best_trial_summary.txt"
