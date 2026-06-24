@@ -12,4 +12,4 @@
 #SBATCH --error=slurm-%A.err
 
 
-python -m RL.optuna_search_aireadi_full --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0
+python -m RL.optuna_search_aireadi_full --STUDY_NAME newaireadioptuna --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0
