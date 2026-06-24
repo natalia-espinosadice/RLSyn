@@ -796,7 +796,27 @@ def main():
 
     #ablations
 
-    if H.ABLATION == "reinforce": 
+    '''
+    6,[0.8830357142857143, 0.8590352811215688, 0.5201030556666109], 
+    {'batch': 256, 'noise_dim': 112, 'ppo_epochs': 5, 'disc_steps': 3, 'mean_penalty': 0.2, 'gradient_penalty': 5, 'g_lr': 0.0001, 'd_lr': 5e-05}
+
+    '''
+    if H.ABLATION == "trial6_ogoptuna": 
+        H = H.override(
+            BATCH = 256, 
+            NOISE_DIM = 112, 
+            PPO_EPOCHS = 5, 
+            DISC_STEPS = 3, 
+            MEAN_PENALTY_SCALE = 0.2, 
+            GRADIENT_PENALTY = 5, 
+            G_LR = 0.0001, 
+            D_LR = 5e-5, 
+            G_HIDDEN_DIM = 64, 
+            D_HIDDEN_DIM = 64, 
+
+
+        )
+    elif H.ABLATION == "reinforce": 
         df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
     elif H.ABLATION == "reparam_gan": 
         #df_syn, elapsed_time = reparam_GAN(df_train, real, loader, H)
