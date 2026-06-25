@@ -41,17 +41,19 @@ def evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn
 
 def objective(trial:optuna.Trial, study_name, data_path): 
     #define parameters 
-    BATCH = trial.suggest_int("batch", 128, 384, step=128) 
-    NOISE_DIM = trial.suggest_int("noise_dim", 16, 64, step=48) 
-    PPO_EPOCHS = trial.suggest_int("ppo_epochs", 3, 5, step = 2) 
-    DISC_STEPS = 3 #trial.suggest_int("disc_steps", 1, 5, step =2) 
-    MEAN_PENALTY_SCALE = 0 # trial.suggest_float("mean_penalty", 0, 0.2, step=0.2) 
+    BATCH = trial.suggest_int("batch", 128, 384, step=128) #64 
+    NOISE_DIM = 64 # trial.suggest_int("noise_dim", 16, 64, step=48) #128 
+    PPO_EPOCHS = trial.suggest_int("ppo_epochs", 3, 5) #1,5
+    DISC_STEPS = trial.suggest_int("disc_steps", 1, 5) 
+    MEAN_PENALTY_SCALE = 0.2 # trial.suggest_float("mean_penalty", 0, 0.2, step=0.2) 
     GRADIENT_PENALTY = 10 # trial.suggest_int("gradient_penalty", 5, 10, step = 5) 
     USE_TANH = True # trial.suggest_categorical("use_tanh", [True, False])
-    G_LR = trial.suggest_categorical("g_lr", [5e-5, 5e-4, 2e-4, 1e-4]) 
-    D_LR = trial.suggest_categorical("d_lr", [1e-5, 3e-5, 5e-5, 5e-4]) 
-    G_H = 64 #trial.suggest_int("g_h", 64, 128, step=64) 
-    D_H = 64 #trial.suggest_int("d_h", 64, 128, step=64) 
+    #G_LR = trial.suggest_categorical("g_lr", [5e-5, 5e-4, 2e-4, 1e-4]) 
+    G_LR = trial.suggest_float("g_lr", 5e-5, 1e-4)
+    D_LR = trial.suggest_float("g_lr", 5e-5, 1e-4)
+    #D_LR = trial.suggest_categorical("d_lr", [1e-5, 3e-5, 5e-5, 5e-4]) 
+    G_H = 128 #trial.suggest_int("g_h", 64, 128, step=64) 
+    D_H = 128 #trial.suggest_int("d_h", 64, 128, step=64) 
     #define save paths 
     
     H = HyperParams_AIREADI()
@@ -114,7 +116,6 @@ def main():
     args = parse_args() 
     study_name = args["STUDY_NAME"]
     data_path = args["DATA_PATH"]
-    set_seed(0)
     base_dir = f"{study_name}"
     os.makedirs(base_dir, exist_ok=True) 
     study = optuna.create_study(
@@ -124,7 +125,7 @@ def main():
         directions= ("maximize", "maximize", "minimize")
     )
     objectives = ["s2h_auc", "r2s_auc", "synth_mem_auc"]
-    study.optimize(lambda trial: objective(trial, study_name, data_path), n_trials = 20)
+    study.optimize(lambda trial: objective(trial, study_name, data_path), n_trials = 30)
     #best trial info 
     best_save = f"{base_dir}/best_trial_summary.txt"
     with open(best_save, "w") as f:
