@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=25G
+#SBATCH --mem=15G
 #SBATCH --time=11:59:59
 #SBATCH --output=slurm-%A.out    # %A = jobID, %a = array index
 #SBATCH --error=slurm-%A.err

@@ -845,6 +845,28 @@ def main():
         D_LR = 3e-5, G_LR = 0.0005, G_H = 64, D_H = 64, PPO_EPOCHS = 3, MEAN_PENALTY_SCALE=0, USE_TANH=True,   )
         df_syn, elapsed_time = train(df_train, real, loader, H)
     
+
+    if H.ABLATION == "optuna2_trial25": 
+        H = H.override(BATCH = 256, NOISE_DIM = 112, DISC_STEPS =5, GRADIENT_PENALTY=5, MEAN_PENALTY_SCALE=0, 
+        D_LR = 1e-5, G_LR = 0.0002, G_H = 128, D_H = 128, PPO_EPOCHS = 3, MEAN_PENALTY_SCALE=0, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    if H.ABLATION == "optuna2_trial22": 
+        H = H.override(BATCH = 128, NOISE_DIM = 64, DISC_STEPS =5, GRADIENT_PENALTY=5, MEAN_PENALTY_SCALE=0, 
+        D_LR = 3e-5, G_LR = 0.00005, G_H = 128, D_H = 64, PPO_EPOCHS = 5, MEAN_PENALTY_SCALE=0, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    if H.ABLATION == "optuna2_trial26": 
+        H = H.override(BATCH = 256, NOISE_DIM = 64, DISC_STEPS =5, GRADIENT_PENALTY=10, MEAN_PENALTY_SCALE=0, 
+        D_LR = 1e-5, G_LR = 0.0002, G_H = 128, D_H = 128, PPO_EPOCHS = 3, MEAN_PENALTY_SCALE=0, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    if H.ABLATION == "optuna2_trial5": 
+        H = H.override(BATCH = 384, NOISE_DIM = 64, DISC_STEPS =3, GRADIENT_PENALTY=10,
+        D_LR = 3e-5, G_LR = 0.00005, G_H = 64, D_H = 64, PPO_EPOCHS = 5, MEAN_PENALTY_SCALE=0.2, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    if H.ABLATION == "optuna2_trial9": 
+        H = H.override(BATCH = 384, NOISE_DIM = 64, DISC_STEPS =3, GRADIENT_PENALTY=5,
+        D_LR = 1e-5, G_LR = 0.0002, G_H = 64, D_H = 64, PPO_EPOCHS = 1, MEAN_PENALTY_SCALE=0.2, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    
     elif H.ABLATION == "reinforce": 
         df_syn, elapsed_time = REINFORCE(df_train, real, loader, H)
     elif H.ABLATION == "reparam_gan": 
