@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=seed4
+#SBATCH --job-name=3_t6
 #SBATCH --partition=gpu
 #SBATCH --qos=gpu-medium
 #SBATCH --nodes=1
@@ -7,8 +7,16 @@
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=25G
-#SBATCH --time=03:59:59
+#SBATCH --time=11:59:59
 #SBATCH --output=slurm-%A.out    # %A = jobID, %a = array index
 #SBATCH --error=slurm-%A.err
 
-python -m RL.optuna_search_aireadi_full --STUDY_NAME newaireadioptuna_2 --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed1 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed1 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed1 --SEED 1 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed2 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed2 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed2 --SEED 2 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed3 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed3 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed3 --SEED 3 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed4 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed4 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed4 --SEED 4 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed5 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed5 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed5 --SEED 5 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed6 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed6 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed6 --SEED 6 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed7 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed7 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed7 --SEED 7 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed8 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed8 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed8 --SEED 8 --ABLATION optuna3_trial6
+python -m RL.train --OUT_DIR AIREADI_new/optuna3_trial6/seed9 --RESULT_CSV AIREADI_new/results.csv --RUN_NAME optuna3_trial6_seed9 --DATASET AIREADI --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed9 --SEED 9 --ABLATION optuna3_trial6
