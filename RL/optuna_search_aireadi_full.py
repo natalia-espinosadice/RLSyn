@@ -37,7 +37,7 @@ def evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn
             f"r2s_auc: {r2s_auc}\nr2s_acc: {r2s_acc}\ns2h_auc: {s2h_auc}\ns2h_acc: {s2h_acc}\n")
         f.write(f"BATCH: {H.BATCH}, NOISE_DIM: {H.NOISE_DIM}, N_CRITIC: {H.DISC_STEPS}, GP_COEFF: {H.GRADIENT_PENALTY}, DISC_LR: {H.D_LR}, GEN LR: {H.G_LR}, G_HIDDEN_DIM: {H.G_H}, D_HIDDEN_DIM: {H.D_H}")
     log_result_RL_search(H.RESULT_CSV, H.RUN_NAME, H.ITERS, H.DATA_SIZE, H.SEED, cwc, synth_mem_auc, s2h_auc, s2h_acc, r2s_auc, r2s_acc)
-    return s2h_auc, r2s_auc, synth_mem_auc 
+    return s2h_auc, r2s_auc, cwc, synth_mem_auc 
 
 def objective(trial:optuna.Trial, study_name, data_path): 
     #define parameters 
@@ -99,8 +99,8 @@ def objective(trial:optuna.Trial, study_name, data_path):
     df_real_with_patients_norm =  pd.read_csv(f"{H.DATA_PATH}/preprocessed_data_with_patients.csv")[H.NUM_COLS + H.CAT_COLS +["patient_id"]]
     df_syn_norm = pd.read_csv(f"{H.OUT_DIR}/synthetic.csv")[H.NUM_COLS+H.CAT_COLS]
     try:
-        s2h_auc, r2s_auc, synth_mem_auc = evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn_norm, df_real_with_patients_norm, H)          
-        return s2h_auc, r2s_auc, synth_mem_auc
+        s2h_auc, r2s_auc, cwc, synth_mem_auc = evaluate_model(df_real, df_hold, df_syn, df_train_norm, df_hold_norm, df_syn_norm, df_real_with_patients_norm, H)          
+        return cwc/1000, synth_mem_auc
     except Exception as e:
         raise optuna.TrialPruned(f"Pruned due to evaluation failure")
 
@@ -122,9 +122,9 @@ def main():
         study_name=f"{study_name}",
         storage=f"sqlite:///{study_name}.db",       
         load_if_exists=True,
-        directions= ("maximize", "maximize", "minimize")
+        directions= ("minimize", "minimize")
     )
-    objectives = ["s2h_auc", "r2s_auc", "synth_mem_auc"]
+    objectives = ["cwc", "synth_mem_auc"] #before had usual 3
     study.optimize(lambda trial: objective(trial, study_name, data_path), n_trials = 30)
     #best trial info 
     best_save = f"{base_dir}/best_trial_summary.txt"
