@@ -828,6 +828,23 @@ def main():
             D_H = 64, 
         )
         df_syn, elapsed_time = train(df_train, real, loader, H)
+    
+    if H.ABLATION == "cwc_trial2": 
+        H = H.override(
+            BATCH = 256, DISC_STEPS =5,D_LR =  6.156391413543428e-05, G_LR =  6.156391413543428e-05, PPO_EPOCHS = 4,
+            NOISE_DIM = 64, GRADIENT_PENALTY=10, G_H = 128, D_H = 128,  MEAN_PENALTY_SCALE=0.2, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    if H.ABLATION == "cwc_trial14": 
+        H = H.override(
+            BATCH = 384, DISC_STEPS =4,D_LR =  7.02679030270544e-05, G_LR =  7.02679030270544e-05, PPO_EPOCHS = 3,
+            NOISE_DIM = 64, GRADIENT_PENALTY=10, G_H = 128, D_H = 128,  MEAN_PENALTY_SCALE=0.2, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    if H.ABLATION == "cwc_trial25": 
+        H = H.override(
+            BATCH = 128, DISC_STEPS =5, D_LR =  7.883987180531893e-05, G_LR =  7.883987180531893e-05, PPO_EPOCHS = 5,
+            NOISE_DIM = 64, GRADIENT_PENALTY=10, G_H = 128, D_H = 128,  MEAN_PENALTY_SCALE=0.2, USE_TANH=True,   )
+        df_syn, elapsed_time = train(df_train, real, loader, H)
+    
     if H.ABLATION == "optuna3_trial2": 
         H = H.override(BATCH = 384, NOISE_DIM = 64, DISC_STEPS =3, GRADIENT_PENALTY=10,
         D_LR = 3e-5, G_LR = 5e-5, G_H = 64, D_H = 64, PPO_EPOCHS = 5, MEAN_PENALTY_SCALE=0, USE_TANH=True,   )
