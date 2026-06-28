@@ -1,0 +1,6 @@
+overall_score_real_num=0.0502
+overall_score_hold_num=0.0567
+overall_score_real_cat=0.0115
+overall_score_hold_cat=0.0383
+overall_score_real=0.0308
+overall_score_hold=0.0475

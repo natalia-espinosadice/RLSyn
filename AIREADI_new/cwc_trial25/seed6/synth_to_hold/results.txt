@@ -1,0 +1,16 @@
+--------5-FOLD: TRAIN ON SYNTHETIC / TEST ON HOLD--------
+Target distribution (hold):
+Type 2 Diabetes
+0    301
+1    158
+Name: count, dtype: int64
+
+Fold 1  AUC=0.7409  Acc=0.685  Prec=0.523  Rec=0.742  F1=0.613
+Fold 2  AUC=0.7409  Acc=0.685  Prec=0.538  Rec=0.656  F1=0.592
+Fold 3  AUC=0.8271  Acc=0.728  Prec=0.595  Rec=0.688  F1=0.638
+Fold 4  AUC=0.9089  Acc=0.848  Prec=0.750  Rec=0.844  F1=0.794
+Fold 5  AUC=0.8898  Acc=0.835  Prec=0.735  Rec=0.806  F1=0.769
+
+Cross-validation summary
+Mean AUC : 0.8215 ± 0.0712
+Mean Acc : 0.756 ± 0.072
