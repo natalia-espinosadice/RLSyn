@@ -1,13 +1,23 @@
 #!/bin/bash
-#SBATCH --job-name=ai               # Job name
-#SBATCH --nodes=1                       # We only need 1 node
+#SBATCH --job-name=ai
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --partition=mig                      # 1 task
-#SBATCH --cpus-per-task=1              # 8 CPU cores
-#SBATCH --gres=gpu:1                    # 1 GPU
-#SBATCH --mem=2G                       # 16 GB of system RAM
-#SBATCH --time=11:59:59              # Max run time (HH:MM:SS)
-#SBATCH --output=slurm-%j.out           # Standard output log (%j expands to jobID)
-#SBATCH --error=slurm-%j.err            # Standard error log
+#SBATCH --partition=mig
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:1
+#SBATCH --mem=2G
+#SBATCH --time=01:59:59
+#SBATCH --output=slurm-%A_%a.out
+#SBATCH --error=slurm-%A_%a.err
+#SBATCH --array=2-9
 
-python -m RL.optuna_search_aireadi_full --STUDY_NAME aireadioptunanew_cwc --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed0
+SEED=$SLURM_ARRAY_TASK_ID
+
+python -m RL.train \
+  --OUT_DIR AIREADI_new/cwc_trial25/seed${SEED} \
+  --RESULT_CSV AIREADI_new/results.csv \
+  --RUN_NAME cwc_trial25_seed${SEED} \
+  --DATASET AIREADI \
+  --DATA_PATH AIREADI_DATA/preprocessed_data0.9_seed${SEED} \
+  --SEED ${SEED} \
+  --ABLATION cwc_trial25
